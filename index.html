@@ -3,124 +3,236 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SmartBiz — Modern Websites for Kenyan Businesses</title>
+<title>SmartBiz — Premium Web Solutions for Growth</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
 
-<header class="container">
-<h2>⚡ SmartBiz</h2>
-<a href="https://wa.me/254726090372?text=Hi%20I%20want%20a%20website" class="cta">Get Started</a>
+<!-- Background Glow Elements -->
+<div class="glow-bg">
+  <div class="glow-circle glow-circle-1"></div>
+  <div class="glow-circle glow-circle-2"></div>
+</div>
+
+<header>
+  <div class="container nav-container">
+    <a href="index.html" class="logo">
+      <span style="color: var(--accent-orange)">⚡</span> SmartBiz
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="pay.html">Payment</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="https://wa.me/254726090372" class="btn btn-primary">Get Started</a>
+  </div>
 </header>
 
-<section class="hero reveal">
-<h1>We Build Websites That Bring Customers</h1>
-<p>Modern, fast and mobile-first websites for businesses in Kenya.</p>
-
-<a href="https://wa.me/254726090372?text=Hi%20I%20want%20a%20website">
-<button>Get Started Now</button>
-</a>
+<!-- HERO SECTION -->
+<section class="container hero">
+  <div class="reveal">
+    <h1>We Build <span class="gradient-text">Premium</span> Websites That Scale</h1>
+    <p>Empowering Kenyan businesses with world-class digital experiences that convert visitors into loyal customers.</p>
+    <div style="display: flex; gap: 16px; justify-content: center;">
+      <a href="https://wa.me/254726090372" class="btn btn-primary">Start Your Project</a>
+      <a href="services.html" class="btn btn-outline">View Our Plans</a>
+    </div>
+  </div>
 </section>
 
-<section class="container features">
-<div class="card reveal">
-<h3>⚡ Fast Delivery</h3>
-<p>Website ready in 1–2 days</p>
-</div>
-
-<div class="card reveal delay-1">
-<h3>📱 Mobile Friendly</h3>
-<p>Perfect on all devices</p>
-</div>
-
-<div class="card reveal delay-2">
-<h3>📈 More Customers</h3>
-<p>Turn visitors into buyers</p>
-</div>
+<!-- FEATURES SECTION -->
+<section class="container" style="padding: 100px 0;">
+  <div class="section-header reveal">
+    <h2>Engineered for <span class="gradient-text">Performance</span></h2>
+    <p class="text-muted">Built with modern tech stacks to ensure your business stays ahead of the curve.</p>
+  </div>
+  
+  <div class="grid-3">
+    <div class="glass-card reveal">
+      <div class="feature-icon"><i class="fas fa-bolt" style="color: #ff7a18"></i></div>
+      <h3>Insane Speed</h3>
+      <p class="text-muted">Lightning-fast loading times (under 2 seconds) for maximum user retention and SEO ranking.</p>
+    </div>
+    
+    <div class="glass-card reveal delay-1">
+      <div class="feature-icon"><i class="fas fa-mobile-screen" style="color: #ff7a18"></i></div>
+      <h3>Mobile-First</h3>
+      <p class="text-muted">Pixel-perfect responsiveness ensuring a flawless experience on smartphones, tablets, and desktops.</p>
+    </div>
+    
+    <div class="glass-card reveal delay-2">
+      <div class="feature-icon"><i class="fas fa-chart-line" style="color: #ff7a18"></i></div>
+      <h3>Growth Focused</h3>
+      <p class="text-muted">Strategic conversion paths designed to turn traffic into measurable business revenue.</p>
+    </div>
+  </div>
 </section>
 
-<section class="container pricing">
-<div class="card reveal">
-<h3>Starter</h3>
-<p>KES 3,000</p>
-</div>
+<!-- PRICING SECTION -->
+<section class="container" style="padding: 100px 0;">
+  <div class="section-header reveal">
+    <h2>Transparent <span class="gradient-text">Pricing</span></h2>
+    <p class="text-muted">Choose a plan that aligns with your business goals and budget.</p>
+  </div>
 
-<div class="card reveal delay-1">
-<h3>Business</h3>
-<p>KES 7,000</p>
-</div>
+  <div class="grid-3">
+    <!-- Starter -->
+    <div class="glass-card pricing-card reveal">
+      <h3>Starter</h3>
+      <div class="price-value">3,000<span>/KES</span></div>
+      <ul class="pricing-features">
+        <li>Single Page Microsite</li>
+        <li>Premium Responsive UI</li>
+        <li>WhatsApp Integration</li>
+        <li>Basic SEO Optimization</li>
+        <li>24-48 Hour Delivery</li>
+      </ul>
+      <a href="pay.html" class="btn btn-outline" style="width:100%;">Get Started</a>
+    </div>
 
-<div class="card reveal delay-2">
-<h3>Premium</h3>
-<p>KES 15,000</p>
-</div>
+    <!-- Business -->
+    <div class="glass-card pricing-card featured reveal delay-1">
+      <div class="badge">MOST POPULAR</div>
+      <h3>Business</h3>
+      <div class="price-value">7,000<span>/KES</span></div>
+      <ul class="pricing-features">
+        <li>Up to 5 Premium Pages</li>
+        <li>Custom Domain & Email</li>
+        <li>Advanced Lead Generation</li>
+        <li>Full SEO Audit & Setup</li>
+        <li>Priority 3-Day Delivery</li>
+      </ul>
+      <a href="pay.html" class="btn btn-primary" style="width:100%;">Select Plan</a>
+    </div>
+
+    <!-- Premium -->
+    <div class="glass-card pricing-card reveal delay-2">
+      <h3>Premium</h3>
+      <div class="price-value">15,000<span>/KES</span></div>
+      <ul class="pricing-features">
+        <li>E-commerce / Web App</li>
+        <li>Inventory Management</li>
+        <li>Custom CMS Integration</li>
+        <li>Performance Optimization</li>
+        <li>Lifetime Basic Support</li>
+      </ul>
+      <a href="pay.html" class="btn btn-outline" style="width:100%;">Talk to Sales</a>
+    </div>
+  </div>
 </section>
 
-<!-- REAL PROJECTS -->
-<section class="container" style="padding:40px 0;">
-<h2 style="text-align:center;">Recent Work</h2>
+<!-- PORTFOLIO SECTION -->
+<section class="container" style="padding: 100px 0;">
+  <div class="section-header reveal">
+    <h2>Featured <span class="gradient-text">Showcase</span></h2>
+    <p class="text-muted">Recent projects delivered for forward-thinking brands.</p>
+  </div>
 
-<div class="features">
+  <div class="grid-3">
+    <!-- Project 1 -->
+    <div class="portfolio-card reveal">
+      <div class="portfolio-img">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Restaurant">
+      </div>
+      <div class="portfolio-body">
+        <span class="portfolio-tag">Food & Beverage</span>
+        <h3>Savory Kitchen</h3>
+        <p class="text-muted" style="margin-bottom: 20px;">High-conversion ordering system for a local boutique restaurant.</p>
+        <a href="https://keen-tiramisu-c83a70.netlify.app/" target="_blank" class="text-muted" style="font-weight: 700; text-decoration: underline;">Live Preview</a>
+      </div>
+    </div>
 
-<div class="card reveal">
-<h3>Restaurant Website</h3>
-<p>Modern restaurant website with menu and WhatsApp ordering.</p>
-<a href="https://keen-tiramisu-c83a70.netlify.app/" target="_blank">
-<button>View Live Site</button>
-</a>
-</div>
+    <!-- Project 2 -->
+    <div class="portfolio-card reveal delay-1">
+      <div class="portfolio-img">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Business">
+      </div>
+      <div class="portfolio-body">
+        <span class="portfolio-tag">Real Estate</span>
+        <h3>Nairobi Estates</h3>
+        <p class="text-muted" style="margin-bottom: 20px;">Sophisticated property listing platform with advanced filtering.</p>
+        <a href="https://verdant-blancmange-e5ed85.netlify.app/" target="_blank" class="text-muted" style="font-weight: 700; text-decoration: underline;">Live Preview</a>
+      </div>
+    </div>
 
-<div class="card reveal delay-1">
-<h3>Business Landing Page</h3>
-<p>High-converting landing page designed for lead generation.</p>
-<a href="https://verdant-blancmange-e5ed85.netlify.app/" target="_blank">
-<button>View Live Site</button>
-</a>
-</div>
-
-<div class="card reveal delay-2">
-<h3>Modern Web App UI</h3>
-<p>Clean and responsive UI built for performance and usability.</p>
-<a href="https://tiny-biscuit-f9b65f.netlify.app/" target="_blank">
-<button>View Live Site</button>
-</a>
-</div>
-
-</div>
+    <!-- Project 3 -->
+    <div class="portfolio-card reveal delay-2">
+      <div class="portfolio-img">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Web App">
+      </div>
+      <div class="portfolio-body">
+        <span class="portfolio-tag">Software / SaaS</span>
+        <h3>TrackFlow UI</h3>
+        <p class="text-muted" style="margin-bottom: 20px;">Intuitive dashboard interface for performance management.</p>
+        <a href="https://tiny-biscuit-f9b65f.netlify.app/" target="_blank" class="text-muted" style="font-weight: 700; text-decoration: underline;">Live Preview</a>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="container" style="text-align:center;">
-<h2>Contact Us</h2>
+<!-- FOOTER -->
+<footer>
+  <div class="container footer-grid">
+    <div class="footer-col">
+      <div class="logo" style="margin-bottom: 24px;">⚡ SmartBiz</div>
+      <p class="text-muted" style="max-width: 300px;">Setting the standard for modern web design in Kenya. Built for entrepreneurs by entrepreneurs.</p>
+    </div>
+    
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="pay.html">Payment</a>
+      <a href="contact.html">Contact</a>
+    </div>
 
-<a href="https://wa.me/254726090372">
-<button>Chat on WhatsApp</button>
-</a>
-</section>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <a href="https://wa.me/254726090372">WhatsApp</a>
+      <a href="mailto:hello@smartbiz.co.ke">Email Us</a>
+      <a href="#">Knowledge Base</a>
+      <a href="#">FAQ</a>
+    </div>
 
-<footer class="container" style="text-align:center;">
-<p>© 2026 SmartBiz</p>
+    <div class="footer-col">
+      <h4>Newsletter</h4>
+      <p class="text-muted" style="margin-bottom: 16px;">Get digital growth tips in your inbox.</p>
+      <div style="display:flex; gap: 8px;">
+        <input type="email" placeholder="Email" style="background: var(--bg-card); border: 1px solid var(--border-glass); padding: 12px; border-radius: 8px; color: white; width: 100%;">
+        <button class="btn btn-primary" style="padding: 12px;"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 SmartBiz Agencies. All rights reserved. Built with passion in Nairobi.</p>
+  </div>
 </footer>
 
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/254726090372" class="whatsapp-float">
+  <i class="fab fa-whatsapp" style="color: white; font-size: 2rem;"></i>
+</a>
+
 <script>
-const reveals = document.querySelectorAll('.reveal');
+// Scroll Reveal Logic
+const observerOptions = {
+  threshold: 0.15
+};
 
-function revealOnScroll() {
-  const windowHeight = window.innerHeight;
-
-  reveals.forEach(el => {
-    const elementTop = el.getBoundingClientRect().top;
-
-    if (elementTop < windowHeight - 100) {
-      el.classList.add('active');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
     }
   });
-}
+}, observerOptions);
 
-window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('load', revealOnScroll);
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 
 </body>

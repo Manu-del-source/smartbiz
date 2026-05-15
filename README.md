@@ -7,6 +7,9 @@ SmartBiz is a web development agency focused on building fast, modern, and mobil
 - **Mobile Friendly**: Optimized for all screen sizes.
 - **Conversion Focused**: Designed to turn visitors into customers.
 - **WhatsApp Integration**: Direct call-to-action for immediate engagement.
+- **Modern UI/UX**: Clean dark theme with gradient accents and smooth scroll animations.
+- **Visual Portfolio**: Showcasing recent work with high-quality previews.
+- **Contact Form**: Professional lead generation form.
 
 ## Services & Pricing
 - **Starter**: KES 3,000
@@ -15,8 +18,8 @@ SmartBiz is a web development agency focused on building fast, modern, and mobil
 
 ## Tech Stack
 - HTML5
-- CSS3 (Custom Styles)
-- JavaScript (Scroll Animations)
+- CSS3 (Custom Styles & Gradients)
+- JavaScript (Scroll Animations & Form Handling)
 
 ## Pages
 - `index.html`: Main landing page with pricing and portfolio.

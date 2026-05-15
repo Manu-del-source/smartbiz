@@ -1,13 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — SmartBiz Premium</title>
+
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
 
-<section>
-  <h2>Contact Us</h2>
+<body>
 
-  <div class="card">
-    <p>WhatsApp us directly:</p>
+<!-- Background Glow Elements -->
+<div class="glow-bg">
+  <div class="glow-circle glow-circle-1"></div>
+  <div class="glow-circle glow-circle-2"></div>
+</div>
 
-    <a href="https://wa.me/254726090372">
-      <button>Chat on WhatsApp</button>
+<header>
+  <div class="container nav-container">
+    <a href="index.html" class="logo">
+      <span style="color: var(--accent-orange)">⚡</span> SmartBiz
     </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="pay.html">Payment</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="https://wa.me/254726090372" class="btn btn-primary">Get Started</a>
+  </div>
+</header>
+
+<section class="container hero" style="padding-bottom: 40px;">
+  <div class="reveal">
+    <h1 class="gradient-text">Get In Touch</h1>
+    <p>Have a project in mind? Let's build something extraordinary together.</p>
   </div>
 </section>
+
+<section class="container" style="padding-bottom: 100px;">
+  <div class="grid-3" style="grid-template-columns: 1fr 2fr;">
+    <!-- Contact Info -->
+    <div class="reveal">
+      <div class="glass-card" style="margin-bottom: 24px;">
+        <div class="feature-icon"><i class="fab fa-whatsapp" style="color: #25d366"></i></div>
+        <h3>WhatsApp</h3>
+        <p class="text-muted" style="margin-bottom: 16px;">Instant response for project inquiries.</p>
+        <a href="https://wa.me/254726090372" class="text-muted" style="font-weight: 700; color: white;">+254 726 090372</a>
+      </div>
+
+      <div class="glass-card">
+        <div class="feature-icon"><i class="fas fa-envelope" style="color: var(--accent-orange)"></i></div>
+        <h3>Email</h3>
+        <p class="text-muted" style="margin-bottom: 16px;">For formal briefs and partnerships.</p>
+        <a href="mailto:hello@smartbiz.co.ke" class="text-muted" style="font-weight: 700; color: white;">hello@smartbiz.co.ke</a>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="glass-card reveal delay-1">
+      <form id="contactForm" style="display: flex; flex-direction: column; gap: 24px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+          <div>
+            <label class="text-muted" style="display: block; margin-bottom: 8px; font-size: 0.9rem;">Full Name</label>
+            <input type="text" placeholder="John Doe" required style="width: 100%; background: rgba(255,255,255,0.05); border: 1px solid var(--border-glass); padding: 16px; border-radius: 12px; color: white; outline: none;">
+          </div>
+          <div>
+            <label class="text-muted" style="display: block; margin-bottom: 8px; font-size: 0.9rem;">Email Address</label>
+            <input type="email" placeholder="john@example.com" required style="width: 100%; background: rgba(255,255,255,0.05); border: 1px solid var(--border-glass); padding: 16px; border-radius: 12px; color: white; outline: none;">
+          </div>
+        </div>
+        <div>
+          <label class="text-muted" style="display: block; margin-bottom: 8px; font-size: 0.9rem;">Project Type</label>
+          <select style="width: 100%; background: rgba(255,255,255,0.05); border: 1px solid var(--border-glass); padding: 16px; border-radius: 12px; color: white; outline: none;">
+            <option>Business Website</option>
+            <option>E-commerce Store</option>
+            <option>Custom Web App</option>
+            <option>UI/UX Design</option>
+          </select>
+        </div>
+        <div>
+          <label class="text-muted" style="display: block; margin-bottom: 8px; font-size: 0.9rem;">Message</label>
+          <textarea rows="5" placeholder="Tell us about your project goals..." required style="width: 100%; background: rgba(255,255,255,0.05); border: 1px solid var(--border-glass); padding: 16px; border-radius: 12px; color: white; outline: none;"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="padding: 18px;">Send Project Brief</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container footer-grid">
+    <div class="footer-col">
+      <div class="logo" style="margin-bottom: 24px;">⚡ SmartBiz</div>
+      <p class="text-muted" style="max-width: 300px;">Setting the standard for modern web design in Kenya. Built for entrepreneurs by entrepreneurs.</p>
+    </div>
+    
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="pay.html">Payment</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Support</h4>
+      <a href="https://wa.me/254726090372">WhatsApp</a>
+      <a href="mailto:hello@smartbiz.co.ke">Email Us</a>
+      <a href="#">Knowledge Base</a>
+      <a href="#">FAQ</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Newsletter</h4>
+      <p class="text-muted" style="margin-bottom: 16px;">Get digital growth tips in your inbox.</p>
+      <div style="display:flex; gap: 8px;">
+        <input type="email" placeholder="Email" style="background: var(--bg-card); border: 1px solid var(--border-glass); padding: 12px; border-radius: 8px; color: white; width: 100%;">
+        <button class="btn btn-primary" style="padding: 12px;"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 SmartBiz Agencies. All rights reserved. Built with passion in Nairobi.</p>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/254726090372" class="whatsapp-float">
+  <i class="fab fa-whatsapp" style="color: white; font-size: 2rem;"></i>
+</a>
+
+<script>
+const observerOptions = { threshold: 0.15 };
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+    }
+  });
+}, observerOptions);
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+document.getElementById('contactForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  alert('Thank you! Your project brief has been sent. We will get back to you within 2 hours.');
+  e.target.reset();
+});
+</script>
+
+</body>
+</html>

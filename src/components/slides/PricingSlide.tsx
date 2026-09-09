@@ -40,7 +40,11 @@ const PLANS = [
 
 const PricingSlide: React.FC = () => (
   <div className="container mx-auto px-5 md:px-10 py-6 md:py-10">
-    <SectionHeading title="Simple, transparent packages" tone="dark" />
+    <SectionHeading
+      title="Website & Software Development Packages"
+      subtitle="Clear starting prices for websites, e-commerce stores and custom digital systems. Final pricing depends on the project's scope and requirements."
+      tone="dark"
+    />
 
     <div className="divide-y divide-white/10 border-y border-white/10">
       {PLANS.map((p, i) => (

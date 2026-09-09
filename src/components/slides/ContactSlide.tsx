@@ -34,7 +34,7 @@ const ContactSlide: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="font-display text-3xl sm:text-4xl lg:text-5xl leading-[1.1] tracking-tight text-white mb-5"
         >
-          Ready to build something better?
+          Ready to build your next website or digital system?
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 18 }}
@@ -43,7 +43,9 @@ const ContactSlide: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-lg text-mist leading-relaxed"
         >
-          Tell us what you're building and we'll help you turn the idea into a practical digital solution.
+          Tell us what your business needs. We'll help you choose the right approach, from a
+          professional business website or online store to a custom web application or
+          management system.
         </motion.p>
       </div>
 
@@ -71,6 +73,8 @@ const ContactSlide: React.FC = () => {
               <span className="text-sm text-mist">kiptooe142@gmail.com</span>
             </div>
           </a>
+
+          <p className="text-sm text-mist px-1">Based in Eldoret, serving businesses across Kenya.</p>
         </div>
 
         <div className="card-dark p-6 md:p-8">

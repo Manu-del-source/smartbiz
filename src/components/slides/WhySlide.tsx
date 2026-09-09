@@ -4,17 +4,17 @@ import { Target, Smartphone, Zap, Tag, LifeBuoy, LayoutTemplate } from 'lucide-r
 import SectionHeading from '../ui/SectionHeading';
 
 const REASONS = [
-  { icon: Target, title: 'Built around your business', desc: 'Every project starts with your goals and workflow, not a template.' },
-  { icon: Smartphone, title: 'Mobile-first by default', desc: 'Most of your customers will visit on a phone, so that\u2019s where we start.' },
-  { icon: Zap, title: 'Fast, modern and scalable', desc: 'Built with a modern stack that stays quick as your business grows.' },
-  { icon: Tag, title: 'Clear pricing', desc: 'You know the cost and what\u2019s included before we start.' },
-  { icon: LifeBuoy, title: 'Ongoing support', desc: 'We stay reachable after launch for updates, fixes and questions.' },
-  { icon: LayoutTemplate, title: 'Business-focused design', desc: 'Design decisions are made to help you sell and operate, not just to look good.' },
+  { icon: Target, title: 'Built around your business', desc: 'Every website or software project starts with your goals, customers and workflow\u2014not a generic template.' },
+  { icon: Smartphone, title: 'Mobile-first by default', desc: 'Most customers visit from a phone, so we design responsive experiences that work well across phones, tablets and desktops.' },
+  { icon: Zap, title: 'Fast, modern and scalable', desc: 'Lightweight, responsive experiences built to perform across phones, tablets and desktops.' },
+  { icon: Tag, title: 'Clear pricing', desc: 'You know the cost and what is included before development starts.' },
+  { icon: LifeBuoy, title: 'Ongoing support', desc: 'We stay reachable after launch for updates, fixes, improvements and questions.' },
+  { icon: LayoutTemplate, title: 'Business-focused design', desc: 'Design decisions are made to help you sell, communicate and operate\u2014not just to look good.' },
 ];
 
 const WhySlide: React.FC = () => (
   <div className="container mx-auto px-5 md:px-10 py-6 md:py-10">
-    <SectionHeading title="Why businesses choose SmartBiz" tone="light" />
+    <SectionHeading title="Why businesses choose SmartBiz for web development" tone="light" />
 
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
       {REASONS.map((r, i) => (

@@ -5,6 +5,14 @@ import SectionHeading from '../ui/SectionHeading';
 
 const FAQS = [
   {
+    question: 'Do you offer web design in Eldoret?',
+    answer: 'Yes. SmartBiz is based in Eldoret and provides website design and development for businesses in Eldoret and clients across Kenya. Projects can also be handled remotely, with requirements and communication managed online.',
+  },
+  {
+    question: 'What types of websites do you build?',
+    answer: 'We build business websites, landing pages, e-commerce stores, portfolio websites and custom web applications. The right approach depends on your goals, content, customers and required features.',
+  },
+  {
     question: 'How long does a website take?',
     answer: 'It depends on the size of the project \u2014 a landing page moves faster than a full business system. We\u2019ll give you a clear timeline before work starts.',
   },
@@ -18,7 +26,7 @@ const FAQS = [
   },
   {
     question: 'Can you integrate M-Pesa?',
-    answer: 'Yes. M-Pesa (Daraja) integration is available for e-commerce sites and any other project that needs it.',
+    answer: 'Yes. We can integrate M-Pesa through Safaricom\u2019s Daraja APIs for e-commerce, payments and other applications that require mobile-money transactions.',
   },
   {
     question: 'Can you maintain the website after launch?',
@@ -31,6 +39,14 @@ const FAQS = [
   {
     question: 'Can you redesign an existing website?',
     answer: 'Yes \u2014 we can redesign an existing site or rebuild it from scratch, depending on what it needs.',
+  },
+  {
+    question: 'Do you build websites for businesses in Kenya?',
+    answer: 'Yes. We work with businesses in Kenya that need a professional online presence, online selling, customer-facing applications or custom internal systems.',
+  },
+  {
+    question: 'Can you help with SEO?',
+    answer: 'Yes. New websites can be launched with a technical SEO foundation including appropriate page titles, descriptions, headings, canonical URLs, XML sitemaps and structured data. We can also help with ongoing content and local SEO improvements.',
   },
   {
     question: 'How do I start a project?',

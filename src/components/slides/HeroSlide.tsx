@@ -22,7 +22,7 @@ const HeroSlide: React.FC = () => {
           transition={{ duration: 0.7 }}
           className="font-display text-4xl sm:text-5xl lg:text-6xl font-medium mb-6 leading-[1.1] tracking-tight text-white"
         >
-          Digital systems built to help your business run, sell, and grow.
+          Websites and Digital Systems Built for Growing Businesses
         </motion.h1>
 
         <motion.p
@@ -31,8 +31,8 @@ const HeroSlide: React.FC = () => {
           transition={{ duration: 0.7, delay: 0.15 }}
           className="text-lg text-mist mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed"
         >
-          SmartBiz designs and builds websites, online stores, and custom software for
-          businesses in Kenya — from a landing page to a full business management system.
+          SmartBiz designs and develops professional websites, e-commerce stores, web
+          applications and custom business systems for businesses in Eldoret and across Kenya.
         </motion.p>
 
         <motion.div

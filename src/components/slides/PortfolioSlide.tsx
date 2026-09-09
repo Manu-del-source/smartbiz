@@ -7,7 +7,7 @@ const PROJECTS = [
   {
     title: 'Savory Kitchen',
     category: 'Food & Beverage',
-    desc: 'A restaurant website built for high-conversion online ordering.',
+    desc: 'Restaurant website focused on menu discovery, online enquiries and a mobile-friendly ordering experience.',
     link: 'https://poppies.vercel.app/#specials',
     from: '#8a3b1f',
     to: '#c65a2c',
@@ -15,7 +15,7 @@ const PROJECTS = [
   {
     title: 'StreetWear KE',
     category: 'Fashion & Retail',
-    desc: 'A premium e-commerce website for urban footwear and fashion, with WhatsApp-based ordering.',
+    desc: 'E-commerce website for a fashion brand, with product discovery and WhatsApp-based ordering designed for mobile shoppers.',
     link: 'https://verdant-blancmange-e5ed85.netlify.app/',
     from: '#1b1f24',
     to: '#3a4048',
@@ -23,7 +23,7 @@ const PROJECTS = [
   {
     title: 'Lumina Events',
     category: 'Entertainment & Events',
-    desc: 'A website for live entertainment events, designed to move ticket-buyers to act.',
+    desc: 'Event website designed to showcase upcoming experiences, provide essential event information and encourage ticket enquiries.',
     link: 'https://lumina-rosy.vercel.app/',
     from: '#33204f',
     to: '#5c3a82',
@@ -35,7 +35,7 @@ const PortfolioSlide: React.FC = () => {
     <div className="container mx-auto px-5 md:px-10 py-6 md:py-10">
       <SectionHeading
         title="Selected work"
-        subtitle="A few projects we've delivered for businesses across different industries."
+        subtitle="A selection of websites and digital experiences we've built across different industries."
         tone="dark"
       />
 

@@ -7,40 +7,40 @@ const SERVICES = [
   {
     icon: Globe,
     title: 'Business Websites',
-    desc: 'High-converting websites designed to establish credibility and generate leads.',
+    desc: 'Professional, mobile-first websites designed to explain your services, build trust and turn visitors into enquiries.',
   },
   {
     icon: ShoppingBag,
     title: 'E-commerce',
-    desc: 'Modern online stores designed around product discovery, checkout and growth.',
+    desc: 'E-commerce websites with product catalogues, mobile-friendly shopping, checkout and payment integrations such as M-Pesa.',
   },
   {
     icon: LayoutGrid,
     title: 'Web Applications',
-    desc: 'Custom applications built around specific business workflows.',
+    desc: 'Custom web applications that digitize business workflows, customer processes, dashboards and internal operations.',
   },
   {
     icon: Building2,
     title: 'Business Management Systems',
-    desc: 'Internal platforms for schools, businesses and organizations.',
+    desc: 'Custom management systems for schools, businesses and organizations that need to replace manual processes with connected digital workflows.',
   },
   {
     icon: Layers,
     title: 'SaaS Products',
-    desc: 'Scalable subscription-based software products.',
+    desc: 'SaaS products designed for recurring-revenue businesses, customer portals, subscriptions and multi-user workflows.',
   },
   {
     icon: Puzzle,
     title: 'Custom Solutions',
-    desc: 'Bespoke digital systems built for requirements the above don\u2019t cover.',
+    desc: 'Bespoke digital systems built around requirements that need a more tailored solution.',
   },
 ];
 
 const ServicesSlide: React.FC = () => (
   <div className="container mx-auto px-5 md:px-10 py-6 md:py-10">
     <SectionHeading
-      title="What we build"
-      subtitle="Web design and development, e-commerce, and custom business software — scoped to what your business actually needs."
+      title="Web Design, Development & Business Software"
+      subtitle="From professional business websites and online stores to custom web applications and internal systems, we build digital products around how your business works."
       tone="light"
     />
 

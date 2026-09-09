@@ -3,15 +3,15 @@ import { motion } from 'framer-motion';
 import SectionHeading from '../ui/SectionHeading';
 
 const STEPS = [
-  { num: '01', title: 'Discover', desc: 'Understand the business, goals, audience and requirements.' },
-  { num: '02', title: 'Design', desc: 'Create the visual direction and user experience.' },
-  { num: '03', title: 'Build', desc: 'Develop, integrate, test and optimize the product.' },
-  { num: '04', title: 'Launch', desc: 'Deploy the project and provide post-launch support.' },
+  { num: '01', title: 'Discover', desc: 'We understand your business, customers, goals and technical requirements before we design anything.' },
+  { num: '02', title: 'Design', desc: 'We create the visual direction and user experience around your brand and customers.' },
+  { num: '03', title: 'Build', desc: 'We develop, integrate, test and optimize the website or digital system.' },
+  { num: '04', title: 'Launch', desc: 'We deploy the project, connect the required services and provide post-launch support.' },
 ];
 
 const ProcessSlide: React.FC = () => (
   <div className="container mx-auto px-5 md:px-10 py-6 md:py-10">
-    <SectionHeading title="From idea to launch" tone="light" />
+    <SectionHeading title="Our Web Design & Development Process" tone="light" />
 
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6 relative">
       <div className="absolute top-6 left-[12.5%] right-[12.5%] h-px bg-paper-line hidden lg:block" />

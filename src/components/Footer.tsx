@@ -57,7 +57,7 @@ const Footer: React.FC = () => (
               +254 726 090372
             </a>
           </li>
-          <li>Nairobi, Kenya</li>
+          <li>Eldoret, Kenya</li>
         </ul>
       </div>
     </div>

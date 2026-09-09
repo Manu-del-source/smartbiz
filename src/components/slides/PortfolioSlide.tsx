@@ -7,7 +7,7 @@ const PROJECTS = [
   {
     title: 'Savory Kitchen',
     category: 'Food & Beverage',
-    desc: 'A high-conversion ordering experience for a boutique restaurant.',
+    desc: 'A restaurant website built for high-conversion online ordering.',
     link: 'https://poppies.vercel.app/#specials',
     from: '#8a3b1f',
     to: '#c65a2c',
@@ -15,7 +15,7 @@ const PROJECTS = [
   {
     title: 'StreetWear KE',
     category: 'Fashion & Retail',
-    desc: 'A premium e-commerce storefront for urban footwear and fashion, with WhatsApp-based ordering.',
+    desc: 'A premium e-commerce website for urban footwear and fashion, with WhatsApp-based ordering.',
     link: 'https://verdant-blancmange-e5ed85.netlify.app/',
     from: '#1b1f24',
     to: '#3a4048',
@@ -23,7 +23,7 @@ const PROJECTS = [
   {
     title: 'Lumina Events',
     category: 'Entertainment & Events',
-    desc: 'A digital presence for live entertainment events, built to move ticket-buyers to act.',
+    desc: 'A website for live entertainment events, designed to move ticket-buyers to act.',
     link: 'https://lumina-rosy.vercel.app/',
     from: '#33204f',
     to: '#5c3a82',

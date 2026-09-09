@@ -48,7 +48,7 @@ const Nav: React.FC = () => {
             SmartBiz
           </button>
 
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-8" aria-label="Primary">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.id}
@@ -87,7 +87,7 @@ const Nav: React.FC = () => {
             transition={{ duration: 0.25 }}
             className="fixed inset-0 z-[90] bg-ink flex flex-col items-center justify-center gap-8 md:hidden"
           >
-            <nav className="flex flex-col items-center gap-7">
+            <nav className="flex flex-col items-center gap-7" aria-label="Mobile">
               {NAV_LINKS.map((link) => (
                 <a
                   key={link.id}

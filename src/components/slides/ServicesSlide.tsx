@@ -38,7 +38,11 @@ const SERVICES = [
 
 const ServicesSlide: React.FC = () => (
   <div className="container mx-auto px-5 md:px-10 py-6 md:py-10">
-    <SectionHeading title="What we build" tone="light" />
+    <SectionHeading
+      title="What we build"
+      subtitle="Web design and development for businesses in Kenya — business websites, online stores, web applications and management systems, built around how you work."
+      tone="light"
+    />
 
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
       {SERVICES.map((s, i) => (

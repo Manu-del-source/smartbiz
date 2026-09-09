@@ -32,6 +32,7 @@ const ContactSlide: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
+          id="contact-title"
           className="font-display text-3xl sm:text-4xl lg:text-5xl leading-[1.1] tracking-tight text-white mb-5"
         >
           Ready to build something better?
@@ -74,11 +75,12 @@ const ContactSlide: React.FC = () => {
         </div>
 
         <div className="card-dark p-6 md:p-8">
-          <form className="space-y-4" onSubmit={handleSubmit}>
+          <form className="space-y-4" onSubmit={handleSubmit} aria-labelledby="contact-title">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <input
                 type="text"
                 placeholder="Full name"
+                aria-label="Full name"
                 required
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -87,6 +89,7 @@ const ContactSlide: React.FC = () => {
               <input
                 type="text"
                 placeholder="Business (optional)"
+                aria-label="Business (optional)"
                 value={formData.business}
                 onChange={(e) => setFormData({ ...formData, business: e.target.value })}
                 className={inputClass}
@@ -96,6 +99,7 @@ const ContactSlide: React.FC = () => {
               <input
                 type="email"
                 placeholder="Email address"
+                aria-label="Email address"
                 required
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -104,12 +108,14 @@ const ContactSlide: React.FC = () => {
               <input
                 type="tel"
                 placeholder="Phone (optional)"
+                aria-label="Phone (optional)"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 className={inputClass}
               />
             </div>
             <select
+              aria-label="Project type (optional)"
               value={formData.projectType}
               onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
               className={`${inputClass} text-mist`}
@@ -124,6 +130,7 @@ const ContactSlide: React.FC = () => {
             <textarea
               rows={4}
               placeholder="Tell us about your project..."
+              aria-label="Tell us about your project"
               required
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}

@@ -31,11 +31,6 @@ const Nav: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const goHome = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    setIsMenuOpen(false);
-  };
-
   return (
     <>
       <header
@@ -44,9 +39,13 @@ const Nav: React.FC = () => {
         }`}
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center py-4 md:py-5 px-5 md:px-10">
-          <button onClick={goHome} className="font-display text-xl md:text-2xl font-semibold text-white tracking-tight">
+          <a
+            href="#home"
+            onClick={() => setIsMenuOpen(false)}
+            className="font-display text-xl md:text-2xl font-semibold text-white tracking-tight"
+          >
             SmartBiz
-          </button>
+          </a>
 
           <nav className="hidden md:flex items-center gap-8">
             {NAV_LINKS.map((link) => (

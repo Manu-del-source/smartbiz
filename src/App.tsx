@@ -3,8 +3,11 @@ import Nav from './components/Nav';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
 import WhatsAppButton from './components/WhatsAppButton';
+// The hero is intentionally NOT lazy-loaded: it is the above-the-fold content and
+// carries the page's single H1, which must not wait for lazy chunk fetches.
+import HeroSlide from './components/slides/HeroSlide';
 
-const Hero = lazy(() => import('./components/slides/HeroSlide'));
+// Everything below the fold stays lazy-loaded and code-split as before.
 const Services = lazy(() => import('./components/slides/ServicesSlide'));
 const Portfolio = lazy(() => import('./components/slides/PortfolioSlide'));
 const Why = lazy(() => import('./components/slides/WhySlide'));
@@ -16,8 +19,7 @@ const Contact = lazy(() => import('./components/slides/ContactSlide'));
 
 type Tone = 'dark' | 'light';
 
-const SECTIONS: { id: string; component: React.LazyExoticComponent<React.FC>; tone: Tone; grid?: boolean }[] = [
-  { id: 'home', component: Hero, tone: 'dark', grid: true },
+const BELOW_FOLD_SECTIONS: { id: string; component: React.LazyExoticComponent<React.FC>; tone: Tone; grid?: boolean }[] = [
   { id: 'services', component: Services, tone: 'light' },
   { id: 'work', component: Portfolio, tone: 'dark', grid: true },
   { id: 'why', component: Why, tone: 'light' },
@@ -30,42 +32,52 @@ const SECTIONS: { id: string; component: React.LazyExoticComponent<React.FC>; to
 
 function App() {
   return (
-    <main className="relative bg-ink text-white selection:bg-ember/30 overflow-x-hidden">
+    <div className="relative bg-ink text-white selection:bg-ember/30 overflow-x-hidden">
       <Nav />
       <BackToTop />
       <WhatsAppButton />
 
-      <Suspense
-        fallback={
-          <div className="h-screen flex items-center justify-center text-ember font-display text-2xl">
-            SmartBiz
+      <main>
+        <section
+          id="home"
+          className="relative w-full py-20 md:py-28 scroll-mt-20 pt-32 md:pt-40 bg-ink text-white overflow-hidden"
+        >
+          <div className="grid-overlay" />
+          <div className="relative z-10">
+            <HeroSlide />
           </div>
-        }
-      >
-        {SECTIONS.map((section) => {
-          const Component = section.component;
-          const isDark = section.tone === 'dark';
-          return (
-            <section
-              key={section.id}
-              id={section.id}
-              className={`relative w-full py-20 md:py-28 scroll-mt-20 ${
-                section.id === 'home' ? 'pt-32 md:pt-40' : ''
-              } ${isDark ? 'bg-ink text-white' : 'bg-paper text-paper-ink'} ${
-                isDark && section.grid ? 'overflow-hidden' : ''
-              }`}
-            >
-              {isDark && section.grid && <div className="grid-overlay" />}
-              <div className="relative z-10">
-                <Component />
-              </div>
-            </section>
-          );
-        })}
-      </Suspense>
+        </section>
+
+        <Suspense
+          fallback={
+            <div className="h-screen flex items-center justify-center text-ember font-display text-2xl">
+              SmartBiz
+            </div>
+          }
+        >
+          {BELOW_FOLD_SECTIONS.map((section) => {
+            const Component = section.component;
+            const isDark = section.tone === 'dark';
+            return (
+              <section
+                key={section.id}
+                id={section.id}
+                className={`relative w-full py-20 md:py-28 scroll-mt-20 ${
+                  isDark ? 'bg-ink text-white' : 'bg-paper text-paper-ink'
+                } ${isDark && section.grid ? 'overflow-hidden' : ''}`}
+              >
+                {isDark && section.grid && <div className="grid-overlay" />}
+                <div className="relative z-10">
+                  <Component />
+                </div>
+              </section>
+            );
+          })}
+        </Suspense>
+      </main>
 
       <Footer />
-    </main>
+    </div>
   );
 }
 

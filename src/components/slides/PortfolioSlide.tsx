@@ -7,7 +7,7 @@ const PROJECTS = [
   {
     title: 'Savory Kitchen',
     category: 'Food & Beverage',
-    desc: 'A high-conversion ordering experience for a boutique restaurant.',
+    desc: 'A restaurant website and online ordering experience for a boutique kitchen, designed to turn menu browsing into orders.',
     link: 'https://poppies.vercel.app/#specials',
     from: '#8a3b1f',
     to: '#c65a2c',
@@ -15,7 +15,7 @@ const PROJECTS = [
   {
     title: 'StreetWear KE',
     category: 'Fashion & Retail',
-    desc: 'A premium e-commerce storefront for urban footwear and fashion, with WhatsApp-based ordering.',
+    desc: 'An e-commerce storefront for urban footwear and fashion in Kenya, with product browsing and WhatsApp-based ordering.',
     link: 'https://verdant-blancmange-e5ed85.netlify.app/',
     from: '#1b1f24',
     to: '#3a4048',
@@ -23,7 +23,7 @@ const PROJECTS = [
   {
     title: 'Lumina Events',
     category: 'Entertainment & Events',
-    desc: 'A digital presence for live entertainment events, built to move ticket-buyers to act.',
+    desc: 'A website for live entertainment events, built to move ticket buyers from discovery to action.',
     link: 'https://lumina-rosy.vercel.app/',
     from: '#33204f',
     to: '#5c3a82',
@@ -46,6 +46,7 @@ const PortfolioSlide: React.FC = () => {
             href={p.link}
             target="_blank"
             rel="noreferrer"
+            aria-label={`View ${p.title} — ${p.category} project (opens in a new tab)`}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

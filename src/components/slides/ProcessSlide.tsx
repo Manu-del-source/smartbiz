@@ -11,7 +11,11 @@ const STEPS = [
 
 const ProcessSlide: React.FC = () => (
   <div className="container mx-auto px-5 md:px-10 py-6 md:py-10">
-    <SectionHeading title="From idea to launch" tone="light" />
+    <SectionHeading
+      title="From idea to launch"
+      subtitle="Every project follows the same clear path, from the first conversation to launch and ongoing support."
+      tone="light"
+    />
 
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6 relative">
       <div className="absolute top-6 left-[12.5%] right-[12.5%] h-px bg-paper-line hidden lg:block" />

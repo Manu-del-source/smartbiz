@@ -28,6 +28,30 @@ const PROJECTS = [
     from: '#33204f',
     to: '#5c3a82',
   },
+  {
+    title: 'Rift Valley House',
+    category: 'Hospitality & Tourism',
+    desc: 'Boutique hotel website showcasing the retreat\'s accommodations and experiences, with enquiry channels for guests planning a stay.',
+    link: 'https://rift-valley-house.vercel.app',
+    from: '#1d3a2f',
+    to: '#3f6b52',
+  },
+  {
+    title: 'Sains Restaurant',
+    category: 'Food & Beverage',
+    desc: 'Flame-grilled restaurant website for an Eldoret kitchen, built to showcase the menu and convert visitors into table bookings and WhatsApp orders.',
+    link: 'https://sains-restaurant.vercel.app',
+    from: '#5c1f16',
+    to: '#9c3a1f',
+  },
+  {
+    title: 'Kahawa House',
+    category: 'Café & Coffee',
+    desc: 'Café website for a Kenyan coffee house, presenting its story, menu and atmosphere to welcome walk-ins and enquiries.',
+    link: 'https://kahawa-house.vercel.app',
+    from: '#3b2a1a',
+    to: '#6f4e2e',
+  },
 ];
 
 const PortfolioSlide: React.FC = () => {

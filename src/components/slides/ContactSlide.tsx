@@ -4,20 +4,73 @@ import { MessageCircle, Mail } from 'lucide-react';
 
 const PROJECT_TYPES = ['Business Website', 'E-commerce', 'Web Application', 'Business System', 'SaaS Product', 'Not sure yet'];
 
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const GENERIC_ERROR = 'Something went wrong. Please try again or contact us directly.';
+
+interface ContactApiResponse {
+  success?: boolean;
+  error?: string;
+}
+
 const ContactSlide: React.FC = () => {
   const [formData, setFormData] = useState({ name: '', business: '', email: '', phone: '', projectType: '', message: '' });
-  const [status, setStatus] = useState<'' | 'success' | 'error'>('');
+  const [status, setStatus] = useState<'' | 'submitting' | 'success' | 'error'>('');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (formData.name && formData.email && formData.message) {
+    if (status === 'submitting') return;
+
+    const name = formData.name.trim();
+    const email = formData.email.trim();
+    const message = formData.message.trim();
+
+    if (!name || !email || !message) {
+      setStatus('error');
+      setErrorMessage('Please fill in your name, email and message.');
+      return;
+    }
+
+    if (!EMAIL_REGEX.test(email)) {
+      setStatus('error');
+      setErrorMessage('Please enter a valid email address.');
+      return;
+    }
+
+    setStatus('submitting');
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name,
+          business: formData.business.trim(),
+          email,
+          phone: formData.phone.trim(),
+          projectType: formData.projectType,
+          message,
+        }),
+      });
+
+      const data: ContactApiResponse = await response.json().catch(() => ({}));
+
+      if (!response.ok || !data.success) {
+        setStatus('error');
+        setErrorMessage(data.error || GENERIC_ERROR);
+        return;
+      }
+
       setStatus('success');
       setTimeout(() => {
         setStatus('');
+        setErrorMessage('');
         setFormData({ name: '', business: '', email: '', phone: '', projectType: '', message: '' });
       }, 3000);
-    } else {
+    } catch {
       setStatus('error');
+      setErrorMessage(GENERIC_ERROR);
     }
   };
 
@@ -133,10 +186,14 @@ const ContactSlide: React.FC = () => {
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
               className={`${inputClass} resize-none`}
             />
-            <button type="submit" className="btn-primary w-full">
-              {status === 'success' ? 'Message Sent!' : 'Start a Project'}
+            <button
+              type="submit"
+              disabled={status === 'submitting'}
+              className={`btn-primary w-full ${status === 'submitting' ? 'opacity-70 cursor-not-allowed' : ''}`}
+            >
+              {status === 'submitting' ? 'Sending...' : status === 'success' ? 'Message Sent!' : 'Start a Project'}
             </button>
-            {status === 'error' && <p className="text-red-400 text-xs text-center">Please fill in your name, email and message.</p>}
+            {status === 'error' && <p className="text-red-400 text-xs text-center">{errorMessage}</p>}
           </form>
         </div>
       </div>

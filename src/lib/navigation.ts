@@ -5,4 +5,5 @@ export const NAV_LINKS = [
   { id: 'why', label: 'Why SmartBiz' },
   { id: 'process', label: 'Process' },
   { id: 'pricing', label: 'Pricing' },
+  { id: 'contact', label: 'Contact' },
 ];

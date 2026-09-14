@@ -11,10 +11,10 @@ const STEPS = [
 
 const ProcessSlide: React.FC = () => (
   <div className="container mx-auto px-5 md:px-10 py-6 md:py-10">
-    <SectionHeading title="Our Web Design & Development Process" tone="light" />
+    <SectionHeading eyebrow="Process" title="Our web design & development process" />
 
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6 relative">
-      <div className="absolute top-6 left-[12.5%] right-[12.5%] h-px bg-paper-line hidden lg:block" />
+      <div className="absolute top-6 left-[12.5%] right-[12.5%] h-px bg-white/10 hidden lg:block" />
 
       {STEPS.map((s, i) => (
         <motion.div
@@ -23,13 +23,13 @@ const ProcessSlide: React.FC = () => (
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: i * 0.1 }}
-          className="relative z-10"
+          className="relative z-10 bg-ink"
         >
-          <div className="w-12 h-12 rounded-full bg-white border border-paper-line flex items-center justify-center text-sm font-semibold text-ember mb-5">
+          <div className="w-12 h-12 rounded-full bg-ink border border-white/15 flex items-center justify-center text-sm font-semibold text-ember mb-5">
             {s.num}
           </div>
-          <h3 className="text-base font-semibold text-paper-ink mb-2">{s.title}</h3>
-          <p className="text-sm text-slate leading-relaxed">{s.desc}</p>
+          <h3 className="text-base font-medium text-bone mb-2">{s.title}</h3>
+          <p className="text-sm text-mist leading-relaxed">{s.desc}</p>
         </motion.div>
       ))}
     </div>

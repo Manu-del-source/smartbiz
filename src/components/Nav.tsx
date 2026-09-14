@@ -4,8 +4,8 @@ import { Menu, X } from 'lucide-react';
 import { NAV_LINKS } from '../lib/navigation';
 
 // Every section on the page, used to drive the scroll-spy active state.
-// FAQ and Contact are real sections but intentionally left out of primary nav (spec #4).
-const ALL_SECTION_IDS = [...NAV_LINKS.map(l => l.id), 'faq', 'contact'];
+// FAQ is a real section but intentionally left out of the primary nav.
+const ALL_SECTION_IDS = [...NAV_LINKS.map((l) => l.id), 'faq'];
 
 const Nav: React.FC = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -44,7 +44,7 @@ const Nav: React.FC = () => {
         }`}
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center py-4 md:py-5 px-5 md:px-10">
-          <button onClick={goHome} className="font-display text-xl md:text-2xl font-semibold text-white tracking-tight">
+          <button onClick={goHome} className="font-display text-xl md:text-2xl font-semibold text-bone tracking-tight">
             SmartBiz
           </button>
 
@@ -54,7 +54,7 @@ const Nav: React.FC = () => {
                 key={link.id}
                 href={`#${link.id}`}
                 className={`text-sm font-medium transition-colors duration-200 ${
-                  activeSection === link.id ? 'text-ember' : 'text-mist hover:text-white'
+                  activeSection === link.id ? 'text-ember' : 'text-mist hover:text-bone'
                 }`}
               >
                 {link.label}
@@ -67,7 +67,7 @@ const Nav: React.FC = () => {
               Start a Project
             </a>
             <button
-              className="md:hidden text-white p-1"
+              className="md:hidden text-bone p-1"
               onClick={() => setIsMenuOpen((v) => !v)}
               aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={isMenuOpen}
@@ -93,7 +93,7 @@ const Nav: React.FC = () => {
                   key={link.id}
                   href={`#${link.id}`}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`font-display text-2xl ${activeSection === link.id ? 'text-ember' : 'text-white'}`}
+                  className={`font-display text-2xl ${activeSection === link.id ? 'text-ember' : 'text-bone'}`}
                 >
                   {link.label}
                 </a>

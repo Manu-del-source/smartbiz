@@ -16,18 +16,18 @@ const Footer: React.FC = () => (
   <footer className="relative bg-ink border-t border-white/10">
     <div className="max-w-7xl mx-auto px-5 md:px-10 py-16 md:py-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-12">
       <div className="space-y-4 sm:col-span-2 md:col-span-1">
-        <div className="font-display text-2xl font-semibold text-white">SmartBiz</div>
+        <div className="font-display text-2xl font-semibold text-bone">SmartBiz</div>
         <p className="text-mist text-sm leading-relaxed max-w-xs">
           We design and build websites, online stores, and custom software for businesses in Kenya.
         </p>
       </div>
 
       <div>
-        <h4 className="text-sm font-semibold text-white mb-5">Explore</h4>
+        <h4 className="text-sm font-semibold text-bone mb-5">Explore</h4>
         <ul className="space-y-3 text-sm text-mist">
           {FOOTER_NAV.map((s) => (
             <li key={s.id}>
-              <a href={`#${s.id}`} className="hover:text-white transition-colors">
+              <a href={`#${s.id}`} className="hover:text-bone transition-colors">
                 {s.label}
               </a>
             </li>
@@ -36,7 +36,7 @@ const Footer: React.FC = () => (
       </div>
 
       <div>
-        <h4 className="text-sm font-semibold text-white mb-5">Services</h4>
+        <h4 className="text-sm font-semibold text-bone mb-5">Services</h4>
         <ul className="space-y-3 text-sm text-mist">
           {FOOTER_SERVICES.map((s) => (
             <li key={s}>{s}</li>
@@ -45,15 +45,15 @@ const Footer: React.FC = () => (
       </div>
 
       <div>
-        <h4 className="text-sm font-semibold text-white mb-5">Contact</h4>
+        <h4 className="text-sm font-semibold text-bone mb-5">Contact</h4>
         <ul className="space-y-3 text-sm text-mist">
           <li>
-            <a href="mailto:kiptooe142@gmail.com" className="hover:text-white transition-colors">
+            <a href="mailto:kiptooe142@gmail.com" className="hover:text-bone transition-colors">
               kiptooe142@gmail.com
             </a>
           </li>
           <li>
-            <a href="https://wa.me/254726090372" className="hover:text-white transition-colors">
+            <a href="https://wa.me/254726090372" className="hover:text-bone transition-colors">
               +254 726 090372
             </a>
           </li>

@@ -1,111 +1,127 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { ArrowUpRight } from 'lucide-react';
 import Button from '../ui/Button';
 
 const CAPABILITIES = ['Websites', 'Web Apps', 'E-commerce', 'Business Systems'];
 
-// Abstract, labeled mockups rather than a fabricated dashboard with invented numbers.
-const MOCKUPS = [
-  { label: 'Business Website', blocks: [70, 45, 45], accent: false },
-  { label: 'Online Store', blocks: [30, 30, 30], accent: true },
-  { label: 'Business System', blocks: [100, 55, 40], accent: false },
-];
+// The hero's centerpiece is a real, shipped SmartBiz project rather than a
+// fabricated dashboard or generic device mockup. Same honest gradient +
+// monogram treatment used across the Selected Work section — no invented
+// screenshot, no invented numbers.
+const FEATURED_PROJECT = {
+  title: 'Sains Restaurant',
+  category: 'Food & Beverage',
+  domain: 'sains-restaurant.vercel.app',
+  link: 'https://sains-restaurant.vercel.app',
+  from: '#5c1f16',
+  to: '#9c3a1f',
+};
 
 const HeroSlide: React.FC = () => {
   return (
-    <div className="container mx-auto px-5 md:px-10 grid grid-cols-1 lg:grid-cols-2 items-center gap-14 lg:gap-16 py-6 md:py-10">
-      {/* LEFT */}
-      <div className="text-center lg:text-left order-2 lg:order-1">
-        <motion.h1
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="font-display text-4xl sm:text-5xl lg:text-6xl font-medium mb-6 leading-[1.1] tracking-tight text-white"
-        >
-          Websites and Digital Systems Built for Growing Businesses
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.15 }}
-          className="text-lg text-mist mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed"
-        >
-          SmartBiz designs and develops professional websites, e-commerce stores, web
-          applications and custom business systems for businesses in Eldoret and across Kenya.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12"
-        >
-          <Button href="#contact" className="w-full sm:w-auto">Start a Project</Button>
-          <Button
-            href="#work"
-            variant="outline-dark"
-            className="w-full sm:w-auto"
+    <div className="container mx-auto px-5 md:px-10">
+      <div className="grid grid-cols-1 lg:grid-cols-12 items-end gap-y-10 lg:gap-x-12 py-6 md:py-10">
+        {/* LEFT — headline, copy, CTAs */}
+        <div className="lg:col-span-6 text-center lg:text-left">
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="eyebrow mb-5 justify-center lg:justify-start flex"
           >
-            View Our Work
-          </Button>
-        </motion.div>
+            Web design &amp; development — Eldoret, Kenya
+          </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.8 }}
-          className="flex flex-wrap justify-center lg:justify-start gap-x-6 gap-y-3 pt-8 border-t border-white/10"
-        >
-          {CAPABILITIES.map((c, i) => (
-            <span
-              key={c}
-              className={`text-sm text-mist ${i > 0 ? 'pl-6 border-l border-white/10' : ''}`}
-            >
-              {c}
-            </span>
-          ))}
-        </motion.div>
-      </div>
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.08 }}
+            className="font-display text-4xl sm:text-5xl lg:text-[3.4rem] font-medium mb-6 leading-[1.08] tracking-tight text-bone"
+          >
+            Websites built to make your business look serious.
+          </motion.h1>
 
-      {/* RIGHT — layered product-screen mockup, no invented metrics */}
-      <div className="relative order-1 lg:order-2 h-[320px] sm:h-[380px] lg:h-[420px] mb-4 lg:mb-0">
-        {MOCKUPS.map((m, i) => (
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.16 }}
+            className="text-lg text-mist mb-10 max-w-lg mx-auto lg:mx-0 leading-relaxed"
+          >
+            SmartBiz designs and develops modern websites that help businesses attract
+            customers, build trust, and grow online.
+          </motion.p>
+
           <motion.div
-            key={m.label}
-            initial={{ opacity: 0, y: 30, rotate: 0 }}
-            animate={{ opacity: 1, y: 0, rotate: (i - 1) * 3.5 }}
-            transition={{ duration: 0.8, delay: 0.3 + i * 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute left-1/2 top-1/2 w-[240px] sm:w-[280px] md:w-[320px] -translate-x-1/2 -translate-y-1/2 bg-navy border border-white/10 rounded-xl overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,.5)]"
-            style={{ zIndex: i, marginLeft: (i - 1) * 70, marginTop: (i - 1) * -18 }}
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.24 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12"
           >
-            <div className="h-7 bg-white/[0.04] flex items-center px-3 gap-1.5 border-b border-white/5">
-              <span className="w-2 h-2 rounded-full bg-white/15" />
-              <span className="w-2 h-2 rounded-full bg-white/15" />
-              <span className="w-2 h-2 rounded-full bg-white/15" />
-            </div>
-            <div className="p-4 space-y-2">
-              {m.blocks.map((w, bi) => (
-                <div
-                  key={bi}
-                  className="h-3 rounded-sm"
-                  style={{
-                    width: `${w}%`,
-                    background: m.accent && bi === 0 ? 'var(--color-ember)' : 'rgba(255,255,255,.08)',
-                  }}
-                />
-              ))}
-              {m.accent && (
-                <div className="grid grid-cols-3 gap-1.5 pt-1">
-                  {[0, 1, 2].map((g) => (
-                    <div key={g} className="aspect-square rounded-sm bg-white/[0.06]" />
-                  ))}
-                </div>
-              )}
-            </div>
-            <div className="px-4 pb-3 text-[10px] uppercase tracking-wide text-mist">{m.label}</div>
+            <Button href="#contact" className="w-full sm:w-auto">
+              Start a Project →
+            </Button>
+            <Button href="#work" variant="outline-dark" className="w-full sm:w-auto">
+              View Our Work
+            </Button>
           </motion.div>
-        ))}
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="flex flex-wrap justify-center lg:justify-start gap-x-6 gap-y-3 pt-8 border-t border-white/10"
+          >
+            {CAPABILITIES.map((c, i) => (
+              <span key={c} className={`text-sm text-mist ${i > 0 ? 'pl-6 border-l border-white/10' : ''}`}>
+                {c}
+              </span>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* RIGHT — one large, real featured project as the visual centerpiece */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          className="lg:col-span-6"
+        >
+          <a
+            href={FEATURED_PROJECT.link}
+            target="_blank"
+            rel="noreferrer"
+            className="group block border border-white/10 rounded-md overflow-hidden bg-surface hover:border-white/20 transition-colors"
+          >
+            <div className="h-9 flex items-center gap-3 px-4 border-b border-white/10 bg-surface-2/40">
+              <div className="flex gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-white/15" />
+                <span className="w-2 h-2 rounded-full bg-white/15" />
+                <span className="w-2 h-2 rounded-full bg-white/15" />
+              </div>
+              <span className="text-[11px] text-mist/80 bg-white/[0.04] border border-white/10 rounded px-2.5 py-0.5 truncate">
+                {FEATURED_PROJECT.domain}
+              </span>
+            </div>
+            <div
+              className="h-64 sm:h-72 lg:h-80 flex items-center justify-center"
+              style={{ background: `linear-gradient(135deg, ${FEATURED_PROJECT.from}, ${FEATURED_PROJECT.to})` }}
+            >
+              <span className="font-display text-8xl text-bone/90 select-none">
+                {FEATURED_PROJECT.title.charAt(0)}
+              </span>
+            </div>
+            <div className="flex items-center justify-between px-5 py-4">
+              <div>
+                <p className="text-sm font-medium text-bone">{FEATURED_PROJECT.title}</p>
+                <p className="text-xs text-mist mt-0.5">{FEATURED_PROJECT.category}</p>
+              </div>
+              <span className="inline-flex items-center gap-1.5 text-xs font-medium text-mist group-hover:text-ember transition-colors">
+                Featured project <ArrowUpRight size={14} />
+              </span>
+            </div>
+          </a>
+        </motion.div>
       </div>
     </div>
   );

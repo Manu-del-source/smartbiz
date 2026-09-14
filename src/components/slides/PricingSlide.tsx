@@ -41,9 +41,9 @@ const PLANS = [
 const PricingSlide: React.FC = () => (
   <div className="container mx-auto px-5 md:px-10 py-6 md:py-10">
     <SectionHeading
-      title="Website & Software Development Packages"
+      eyebrow="Pricing"
+      title="Website & software development packages"
       subtitle="Clear starting prices for websites, e-commerce stores and custom digital systems. Final pricing depends on the project's scope and requirements."
-      tone="dark"
     />
 
     <div className="divide-y divide-white/10 border-y border-white/10">
@@ -60,11 +60,9 @@ const PricingSlide: React.FC = () => (
         >
           <div>
             {p.recommended && (
-              <span className="inline-block text-[11px] font-semibold text-ember uppercase tracking-wide mb-1.5">
-                Most popular
-              </span>
+              <span className="inline-block text-xs font-medium text-ember mb-1.5">Most popular</span>
             )}
-            <h3 className="text-lg font-semibold text-white">{p.name}</h3>
+            <h3 className="text-lg font-medium text-bone">{p.name}</h3>
             <p className="text-sm text-mist mt-1 max-w-sm">{p.desc}</p>
           </div>
 
@@ -77,7 +75,7 @@ const PricingSlide: React.FC = () => (
             ))}
           </ul>
 
-          <div className="text-xl font-semibold text-white whitespace-nowrap">{p.price}</div>
+          <div className="text-xl font-medium text-bone whitespace-nowrap">{p.price}</div>
 
           <Button
             href="#contact"
@@ -91,12 +89,12 @@ const PricingSlide: React.FC = () => (
     </div>
 
     <div className="flex flex-col sm:flex-row gap-6 sm:gap-10 mt-8 text-sm text-mist">
-      <span><span className="text-white font-semibold">Maintenance:</span> KES 5,000/month</span>
-      <span><span className="text-white font-semibold">Hourly rate:</span> KES 2,000/hour</span>
+      <span><span className="text-bone font-medium">Maintenance:</span> KES 5,000/month</span>
+      <span><span className="text-bone font-medium">Hourly rate:</span> KES 2,000/hour</span>
     </div>
 
     <div className="mt-14 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-white/10 pt-10">
-      <p className="text-lg text-white">Need something custom?</p>
+      <p className="text-lg text-bone">Need something custom?</p>
       <Button href="#contact" variant="outline-dark">Let&rsquo;s discuss your project</Button>
     </div>
   </div>

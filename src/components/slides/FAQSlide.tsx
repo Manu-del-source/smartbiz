@@ -59,7 +59,7 @@ const FAQSlide: React.FC = () => {
 
   return (
     <div className="container mx-auto px-5 md:px-10 py-6 md:py-10">
-      <SectionHeading title="Questions, answered." tone="light" />
+      <SectionHeading eyebrow="FAQ" title="Questions, answered." />
 
       <div className="max-w-3xl">
         {FAQS.map((faq, i) => (
@@ -69,15 +69,15 @@ const FAQSlide: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.05 }}
-            className="border-b border-paper-line"
+            className="border-b border-white/10"
           >
             <button
               onClick={() => setOpenIndex(openIndex === i ? null : i)}
               className="w-full py-5 text-left flex justify-between items-center gap-4"
               aria-expanded={openIndex === i}
             >
-              <span className="font-medium text-paper-ink">{faq.question}</span>
-              <span className="flex-shrink-0 text-paper-ink">
+              <span className="font-medium text-bone">{faq.question}</span>
+              <span className="flex-shrink-0 text-mist">
                 {openIndex === i ? <Minus size={18} /> : <Plus size={18} />}
               </span>
             </button>
@@ -90,7 +90,7 @@ const FAQSlide: React.FC = () => {
                   transition={{ duration: 0.25, ease: 'easeInOut' }}
                   className="overflow-hidden"
                 >
-                  <p className="text-sm md:text-base text-slate leading-relaxed pb-5 pr-8">{faq.answer}</p>
+                  <p className="text-sm md:text-base text-mist leading-relaxed pb-5 pr-8">{faq.answer}</p>
                 </motion.div>
               )}
             </AnimatePresence>

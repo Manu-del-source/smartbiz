@@ -75,19 +75,20 @@ const ContactSlide: React.FC = () => {
   };
 
   const inputClass =
-    'w-full bg-white/5 border border-white/15 rounded-lg px-4 py-3 text-white text-sm placeholder:text-mist/60 focus:outline-none focus:border-ember/60 transition-colors';
+    'w-full bg-white/[0.03] border border-white/15 rounded-md px-4 py-3 text-bone text-sm placeholder:text-mist/60 focus:outline-none focus:border-ember/60 transition-colors';
 
   return (
     <div className="container mx-auto px-5 md:px-10 py-6 md:py-10">
       <div className="max-w-2xl mb-14">
+        <p className="eyebrow mb-4">Contact</p>
         <motion.h2
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="font-display text-3xl sm:text-4xl lg:text-5xl leading-[1.1] tracking-tight text-white mb-5"
+          className="font-display text-3xl sm:text-4xl lg:text-5xl leading-[1.1] tracking-tight text-bone mb-5"
         >
-          Ready to build your next website or digital system?
+          Let&rsquo;s build something that matters.
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 18 }}
@@ -112,7 +113,7 @@ const ContactSlide: React.FC = () => {
               <MessageCircle size={22} />
             </div>
             <div>
-              <h3 className="font-semibold text-white mb-0.5">Chat on WhatsApp</h3>
+              <h3 className="font-medium text-bone mb-0.5">Chat on WhatsApp</h3>
               <span className="text-sm text-mist">+254 726 090372</span>
             </div>
           </a>
@@ -122,7 +123,7 @@ const ContactSlide: React.FC = () => {
               <Mail size={22} />
             </div>
             <div>
-              <h3 className="font-semibold text-white mb-0.5">Email</h3>
+              <h3 className="font-medium text-bone mb-0.5">Email</h3>
               <span className="text-sm text-mist">kiptooe142@gmail.com</span>
             </div>
           </a>
@@ -173,7 +174,7 @@ const ContactSlide: React.FC = () => {
             >
               <option value="">Project type (optional)</option>
               {PROJECT_TYPES.map((t) => (
-                <option key={t} value={t} className="bg-navy text-white">
+                <option key={t} value={t} className="bg-surface text-bone">
                   {t}
                 </option>
               ))}

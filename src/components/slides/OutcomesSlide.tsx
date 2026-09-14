@@ -16,7 +16,7 @@ const OutcomesSlide: React.FC = () => (
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="font-display text-3xl sm:text-4xl lg:text-[2.75rem] leading-[1.15] tracking-tight text-bone mb-12 md:mb-16"
+      className="font-display font-medium text-3xl sm:text-4xl lg:text-[2.75rem] leading-[1.15] tracking-tight text-bone mb-12 md:mb-16"
     >
       Technology should make business easier.
     </motion.h2>

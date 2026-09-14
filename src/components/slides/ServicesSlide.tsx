@@ -39,7 +39,6 @@ const SERVICES = [
 const ServicesSlide: React.FC = () => (
   <div className="container mx-auto px-5 md:px-10 py-6 md:py-10">
     <SectionHeading
-      eyebrow="Services"
       title="Web design, development & business software"
       subtitle="From professional business websites and online stores to custom web applications and internal systems, we build digital products around how your business works."
     />
@@ -54,7 +53,7 @@ const ServicesSlide: React.FC = () => (
           transition={{ duration: 0.5, delay: i * 0.06 }}
           className="p-7 md:p-8 border-r border-b border-white/10"
         >
-          <s.icon size={22} className="text-ember mb-6" strokeWidth={1.5} />
+          <s.icon size={22} className="text-bone mb-6" strokeWidth={1.5} />
           <h3 className="text-lg font-medium text-bone mb-2">{s.title}</h3>
           <p className="text-sm text-mist leading-relaxed">{s.desc}</p>
         </motion.div>

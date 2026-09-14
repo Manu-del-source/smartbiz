@@ -25,7 +25,7 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({ eyebrow, title, subtitl
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="font-display text-3xl sm:text-4xl lg:text-[2.75rem] leading-[1.15] tracking-tight text-bone"
+        className="font-display font-medium text-3xl sm:text-4xl lg:text-[2.75rem] leading-[1.15] tracking-tight text-bone"
       >
         {title}
       </motion.h2>
@@ -35,7 +35,7 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({ eyebrow, title, subtitl
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="mt-4 text-base md:text-lg leading-relaxed text-mist"
+          className="mt-4 max-w-lg text-base md:text-lg leading-relaxed text-mist"
         >
           {subtitle}
         </motion.p>

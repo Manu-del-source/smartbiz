@@ -93,7 +93,7 @@ const Nav: React.FC = () => {
                   key={link.id}
                   href={`#${link.id}`}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`font-display text-2xl ${activeSection === link.id ? 'text-ember' : 'text-bone'}`}
+                  className={`font-display font-medium text-2xl ${activeSection === link.id ? 'text-ember' : 'text-bone'}`}
                 >
                   {link.label}
                 </a>

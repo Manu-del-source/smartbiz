@@ -59,7 +59,7 @@ const FAQSlide: React.FC = () => {
 
   return (
     <div className="container mx-auto px-5 md:px-10 py-6 md:py-10">
-      <SectionHeading eyebrow="FAQ" title="Questions, answered." />
+      <SectionHeading title="Questions, answered." />
 
       <div className="max-w-3xl">
         {FAQS.map((faq, i) => (

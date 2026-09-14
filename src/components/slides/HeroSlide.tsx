@@ -37,7 +37,7 @@ const HeroSlide: React.FC = () => {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.08 }}
-            className="font-display text-4xl sm:text-5xl lg:text-[3.4rem] font-medium mb-6 leading-[1.08] tracking-tight text-bone"
+            className="font-display text-4xl sm:text-5xl lg:text-[3.4rem] font-semibold mb-6 leading-[1.08] tracking-tight text-bone"
           >
             Websites built to make your business look serious.
           </motion.h1>
@@ -104,10 +104,12 @@ const HeroSlide: React.FC = () => {
               </span>
             </div>
             <div
-              className="h-64 sm:h-72 lg:h-80 flex items-center justify-center"
-              style={{ background: `linear-gradient(135deg, ${FEATURED_PROJECT.from}, ${FEATURED_PROJECT.to})` }}
+              className="h-72 sm:h-80 lg:h-96 flex items-center justify-center"
+              style={{
+                background: `linear-gradient(135deg, rgba(0,0,0,.4), rgba(0,0,0,.15)), linear-gradient(135deg, ${FEATURED_PROJECT.from}, ${FEATURED_PROJECT.to})`,
+              }}
             >
-              <span className="font-display text-8xl text-bone/90 select-none">
+              <span className="font-display font-medium text-8xl text-bone/80 select-none">
                 {FEATURED_PROJECT.title.charAt(0)}
               </span>
             </div>

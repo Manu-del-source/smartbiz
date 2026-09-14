@@ -80,13 +80,12 @@ const ContactSlide: React.FC = () => {
   return (
     <div className="container mx-auto px-5 md:px-10 py-6 md:py-10">
       <div className="max-w-2xl mb-14">
-        <p className="eyebrow mb-4">Contact</p>
         <motion.h2
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="font-display text-3xl sm:text-4xl lg:text-5xl leading-[1.1] tracking-tight text-bone mb-5"
+          className="font-display font-medium text-3xl sm:text-4xl lg:text-5xl leading-[1.1] tracking-tight text-bone mb-5"
         >
           Let&rsquo;s build something that matters.
         </motion.h2>

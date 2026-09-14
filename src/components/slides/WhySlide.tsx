@@ -14,7 +14,7 @@ const REASONS = [
 
 const WhySlide: React.FC = () => (
   <div className="container mx-auto px-5 md:px-10 py-6 md:py-10">
-    <SectionHeading eyebrow="Why SmartBiz" title="Why businesses choose SmartBiz for web development" />
+    <SectionHeading title="Why businesses choose SmartBiz for web development" />
 
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
       {REASONS.map((r, i) => (
@@ -27,7 +27,7 @@ const WhySlide: React.FC = () => (
           className="flex gap-4"
         >
           <div className="w-10 h-10 rounded-md border border-white/10 flex items-center justify-center flex-shrink-0">
-            <r.icon size={18} className="text-ember" strokeWidth={1.75} />
+            <r.icon size={18} className="text-bone" strokeWidth={1.75} />
           </div>
           <div>
             <h3 className="text-base font-medium text-bone mb-1.5">{r.title}</h3>

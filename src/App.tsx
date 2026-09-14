@@ -70,7 +70,7 @@ function App() {
 
       <Suspense
         fallback={
-          <div className="h-screen flex items-center justify-center text-ember font-display text-2xl">
+          <div className="h-screen flex items-center justify-center text-ember font-display font-medium text-2xl">
             SmartBiz
           </div>
         }

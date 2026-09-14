@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  /* Surfaces \u2014 warm near-black, not navy. Two steps of lift for depth. */
+  /* Surfaces - warm near-black, not navy. Two visible steps of lift for depth. */
   --color-ink: #0a0908;
-  --color-surface: #141310;
-  --color-surface-2: #1c1a16;
+  --color-surface: #17150e;
+  --color-surface-2: #211e15;
 
   /* Text on dark */
   --color-bone: #f2ede3;
   --color-mist: #a39a8c;
 
-  /* Accent \u2014 SmartBiz rust/orange, used sparingly */
+  /* Accent - SmartBiz rust/orange, used sparingly */
   --color-ember: #e2600a;
   --color-ember-deep: #a8440a;
 
@@ -42,7 +42,7 @@
 }
 
 @layer components {
-  /* Buttons \u2014 small radius, thin borders. Not pill-shaped SaaS defaults. */
+  /* Buttons - small radius, thin borders. Not pill-shaped SaaS defaults. */
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2 bg-ember text-bone font-medium py-3.5 px-7 rounded-md transition-colors duration-200 hover:bg-ember-deep active:scale-[0.98];
   }
@@ -50,18 +50,19 @@
     @apply inline-flex items-center justify-center gap-2 border border-white/15 text-bone font-medium py-3.5 px-7 rounded-md transition-colors duration-200 hover:border-white/35 active:scale-[0.98];
   }
 
-  /* Cards \u2014 hairline borders, minimal radius, no drop shadows */
+  /* Cards - hairline borders, minimal radius, no drop shadows */
   .card-dark {
     @apply bg-surface border border-white/10 rounded-md transition-colors duration-200;
   }
 
-  /* Reusable eyebrow label \u2014 used sparingly, only where it encodes real structure */
+  /* Reusable eyebrow label - used sparingly (currently: hero only), so it
+     never becomes the generic "tracked-out label above every heading" tell. */
   .eyebrow {
     @apply text-xs font-medium text-ember tracking-[0.08em];
   }
 }
 
-/* \u2500\u2500 Motion \u2500\u2500 */
+/* -- Motion -- */
 @keyframes fade-up { from{transform:translateY(28px);opacity:0} to{transform:translateY(0);opacity:1} }
 
 .in-view { animation: fade-up .7s cubic-bezier(.16,1,.3,1) both; }
@@ -69,7 +70,7 @@
 .in-view-delay-2 { animation-delay: .2s; }
 .in-view-delay-3 { animation-delay: .3s; }
 
-/* Subtle dot-grid \u2014 reserved for the hero only, so it stays a deliberate accent */
+/* Subtle dot-grid, reserved for the hero only so it stays a deliberate accent */
 .grid-overlay {
   position: absolute; inset: 0;
   background-image: radial-gradient(rgba(255,255,255,.08) 1px, transparent 1px);
@@ -78,14 +79,16 @@
 }
 
 /* Fine film-grain texture, applied once across the whole page. Static, GPU-cheap,
-   no animation \u2014 this is the one textural accent the brief asks for. */
+   no animation. Uses "screen" blend, not "overlay": overlay is mathematically
+   near-invisible against a base this dark, screen is the correct mode for
+   grain-on-black. */
 .grain-overlay {
   position: fixed;
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  opacity: 0.05;
-  mix-blend-mode: overlay;
+  opacity: 0.045;
+  mix-blend-mode: screen;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch' result='t'/%3E%3CfeColorMatrix in='t' type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 140px 140px;
 }

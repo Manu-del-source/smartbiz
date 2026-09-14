@@ -58,7 +58,6 @@ const PortfolioSlide: React.FC = () => {
   return (
     <div className="container mx-auto px-5 md:px-10 py-6 md:py-10">
       <SectionHeading
-        eyebrow="Selected work"
         title="Real projects, shipped for real businesses."
         subtitle="A selection of websites we've designed and built across different industries — every link goes to the live site."
       />
@@ -79,16 +78,18 @@ const PortfolioSlide: React.FC = () => {
               className="group grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 items-center py-10 md:py-12 border-b border-white/10"
             >
               <div
-                className={`h-56 md:h-72 rounded-md overflow-hidden flex items-center justify-center border border-white/10 ${desktopOrder}`}
-                style={{ background: `linear-gradient(135deg, ${p.from}, ${p.to})` }}
+                className={`relative h-64 md:h-96 rounded-md overflow-hidden flex items-center justify-center border border-white/10 ${desktopOrder}`}
+                style={{
+                  background: `linear-gradient(135deg, rgba(0,0,0,.4), rgba(0,0,0,.15)), linear-gradient(135deg, ${p.from}, ${p.to})`,
+                }}
               >
-                <span className="font-display text-7xl md:text-8xl text-bone/85 select-none">
+                <span className="font-display font-medium text-7xl md:text-8xl text-bone/80 select-none">
                   {p.title.charAt(0)}
                 </span>
               </div>
               <div className={i % 2 === 1 ? 'md:order-1' : 'md:order-2'}>
                 <span className="eyebrow mb-3 inline-block">{p.category}</span>
-                <h3 className="font-display text-2xl md:text-3xl text-bone mb-3 tracking-tight">{p.title}</h3>
+                <h3 className="font-display font-medium text-2xl md:text-3xl text-bone mb-3 tracking-tight">{p.title}</h3>
                 <p className="text-sm md:text-base text-mist leading-relaxed mb-6 max-w-md">{p.desc}</p>
                 <span className="inline-flex items-center gap-1.5 text-sm font-medium text-bone group-hover:text-ember transition-colors">
                   Visit live site <ArrowUpRight size={16} />

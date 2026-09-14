@@ -41,7 +41,6 @@ const PLANS = [
 const PricingSlide: React.FC = () => (
   <div className="container mx-auto px-5 md:px-10 py-6 md:py-10">
     <SectionHeading
-      eyebrow="Pricing"
       title="Website & software development packages"
       subtitle="Clear starting prices for websites, e-commerce stores and custom digital systems. Final pricing depends on the project's scope and requirements."
     />
@@ -69,7 +68,7 @@ const PricingSlide: React.FC = () => (
           <ul className="flex flex-wrap gap-x-5 gap-y-2">
             {p.features.map((f) => (
               <li key={f} className="flex items-center gap-1.5 text-sm text-mist">
-                <Check size={14} className="text-ember flex-shrink-0" />
+                <Check size={14} className="text-mist/70 flex-shrink-0" />
                 {f}
               </li>
             ))}

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { NAV_LINKS } from '../lib/navigation';
+import logo from '../assets/smartbiz-logo.png';
 
 // Every section on the page, used to drive the scroll-spy active state.
 // FAQ is a real section but intentionally left out of the primary nav.
@@ -44,8 +45,15 @@ const Nav: React.FC = () => {
         }`}
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center py-4 md:py-5 px-5 md:px-10">
-          <button onClick={goHome} className="font-display text-xl md:text-2xl font-semibold text-bone tracking-tight">
-            SmartBiz
+          <button onClick={goHome} className="flex items-center" aria-label="SmartBiz — go to homepage">
+            <img
+              src={logo}
+              alt="SmartBiz"
+              width={483}
+              height={311}
+              className="h-7 md:h-8 w-auto"
+              fetchPriority="high"
+            />
           </button>
 
           <nav className="hidden md:flex items-center gap-8" aria-label="Primary">

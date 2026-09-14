@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from '../assets/smartbiz-logo.png';
 
 const FOOTER_NAV = [
   { id: 'services', label: 'Services' },
@@ -16,7 +17,7 @@ const Footer: React.FC = () => (
   <footer className="relative bg-ink border-t border-white/10">
     <div className="max-w-7xl mx-auto px-5 md:px-10 py-16 md:py-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-12">
       <div className="space-y-4 sm:col-span-2 md:col-span-1">
-        <div className="font-display text-2xl font-semibold text-bone">SmartBiz</div>
+        <img src={logo} alt="SmartBiz" width={483} height={311} loading="lazy" className="h-8 w-auto" />
         <p className="text-mist text-sm leading-relaxed max-w-xs">
           We design and build websites, online stores, and custom software for businesses in Kenya.
         </p>

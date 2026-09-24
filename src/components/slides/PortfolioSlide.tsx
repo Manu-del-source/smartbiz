@@ -39,7 +39,7 @@ interface Project {
 // leads with five real, screenshot-backed case studies.
 const PROJECTS: Project[] = [
   {
-    title: 'Savory Kitchen',
+    title: 'Poppies',
     category: 'Food & Beverage',
     desc: 'Restaurant website focused on menu discovery, online enquiries and a mobile-friendly ordering experience.',
     role: 'Website Design · Development',

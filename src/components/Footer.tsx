@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from '../assets/smartbiz-logo.png';
+import { CONTACT } from '../lib/contact';
 
 const FOOTER_NAV = [
   { id: 'services', label: 'Services' },
@@ -49,16 +50,16 @@ const Footer: React.FC = () => (
         <h4 className="text-sm font-semibold text-bone mb-5">Contact</h4>
         <ul className="space-y-3 text-sm text-mist">
           <li>
-            <a href="mailto:kiptooe142@gmail.com" className="hover:text-bone transition-colors">
-              kiptooe142@gmail.com
+            <a href={`mailto:${CONTACT.email}`} className="hover:text-bone transition-colors">
+              {CONTACT.email}
             </a>
           </li>
           <li>
-            <a href="https://wa.me/254726090372" className="hover:text-bone transition-colors">
-              +254 726 090372
+            <a href={CONTACT.whatsappUrl} className="hover:text-bone transition-colors">
+              {CONTACT.phoneDisplay}
             </a>
           </li>
-          <li>Eldoret, Kenya</li>
+          <li>{CONTACT.location}</li>
         </ul>
       </div>
     </div>

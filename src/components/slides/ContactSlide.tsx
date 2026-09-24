@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MessageCircle, Mail } from 'lucide-react';
+import { CONTACT } from '../../lib/contact';
 
 const PROJECT_TYPES = ['Business Website', 'E-commerce', 'Web Application', 'Business System', 'SaaS Product', 'Not sure yet'];
 
@@ -105,7 +106,10 @@ const ContactSlide: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-start">
         <div className="space-y-4">
           <a
-            href="https://wa.me/254726090372"
+            href={CONTACT.whatsappUrl}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`Chat on WhatsApp: ${CONTACT.phoneDisplay}`}
             className="card-dark p-6 flex items-center gap-5 hover:border-white/25"
           >
             <div className="w-12 h-12 rounded-xl bg-[#25D366]/10 text-[#25D366] flex items-center justify-center flex-shrink-0">
@@ -113,21 +117,25 @@ const ContactSlide: React.FC = () => {
             </div>
             <div>
               <h3 className="font-medium text-bone mb-0.5">Chat on WhatsApp</h3>
-              <span className="text-sm text-mist">+254 726 090372</span>
+              <span className="text-sm text-mist">{CONTACT.phoneDisplay}</span>
             </div>
           </a>
 
-          <a href="mailto:kiptooe142@gmail.com" className="card-dark p-6 flex items-center gap-5 hover:border-white/25">
+          <a
+            href={`mailto:${CONTACT.email}`}
+            aria-label={`Email us at ${CONTACT.email}`}
+            className="card-dark p-6 flex items-center gap-5 hover:border-white/25"
+          >
             <div className="w-12 h-12 rounded-xl bg-ember/10 text-ember flex items-center justify-center flex-shrink-0">
               <Mail size={22} />
             </div>
             <div>
               <h3 className="font-medium text-bone mb-0.5">Email</h3>
-              <span className="text-sm text-mist">kiptooe142@gmail.com</span>
+              <span className="text-sm text-mist">{CONTACT.email}</span>
             </div>
           </a>
 
-          <p className="text-sm text-mist px-1">Based in Eldoret, serving businesses across Kenya.</p>
+          <p className="text-sm text-mist px-1">Based in {CONTACT.location}, serving businesses across Kenya.</p>
         </div>
 
         <div className="card-dark p-6 md:p-8">

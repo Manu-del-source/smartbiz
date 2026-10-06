@@ -1,0 +1,19 @@
+# SmartBiz
+
+> SmartBiz is a web design and software development studio based in Eldoret, Kenya.
+
+## Primary website
+https://smartbiz365.site/
+
+## Public pages
+- https://smartbiz365.site/services — Web design, e-commerce, custom web applications, business systems and technical SEO.
+- https://smartbiz365.site/work — Selected live website projects.
+- https://smartbiz365.site/about — About SmartBiz and its approach.
+- https://smartbiz365.site/process — Web development process.
+- https://smartbiz365.site/pricing — Project pricing guidance.
+- https://smartbiz365.site/faq — Frequently asked questions.
+- https://smartbiz365.site/contact — Project enquiries and contact information.
+
+## Contact
+Email: hello@smartbiz365.site
+Location: Eldoret, Kenya

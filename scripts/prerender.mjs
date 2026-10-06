@@ -7,23 +7,20 @@ const routes = ['/', '/services', '/work', '/about', '/process', '/pricing', '/f
 const port = 4173;
 const base = `http://127.0.0.1:${port}`;
 
-function waitForServer(proc) {
-  return new Promise((resolve, reject) => {
-    const timer = setTimeout(() => reject(new Error('Vite preview server did not start in time')), 30000);
-    const onData = (chunk) => {
-      const text = chunk.toString();
-      if (text.includes('Local:') || text.includes(`localhost:${port}`) || text.includes(`127.0.0.1:${port}`)) {
-        clearTimeout(timer);
-        proc.stdout.off('data', onData);
-        resolve();
-      }
-    };
-    proc.stdout.on('data', onData);
-    proc.once('error', reject);
-  });
+async function waitForServer(proc) {
+  const deadline = Date.now() + 30000;
+  while (Date.now() < deadline) {
+    if (proc.exitCode !== null) throw new Error('Vite preview server exited before startup');
+    try {
+      const response = await fetch(`${base}/`);
+      if (response.ok) return;
+    } catch {}
+    await new Promise((resolve) => setTimeout(resolve, 250));
+  }
+  throw new Error('Vite preview server did not start in time');
 }
 
-const server = spawn('npm', ['exec', 'vite', '--', 'preview', '--host', '127.0.0.1', '--port', String(port)], {
+const server = spawn('npm', ['exec', '--', 'vite', 'preview', '--host', '127.0.0.1', '--port', String(port)], {
   stdio: ['ignore', 'pipe', 'pipe'],
   shell: process.platform === 'win32',
 });

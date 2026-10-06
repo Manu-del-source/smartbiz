@@ -38,8 +38,9 @@ try {
     });
     page.on('pageerror', (error) => pageErrors.push(error.message));
 
-    await page.goto(`${base}${route}`, { waitUntil: 'networkidle0', timeout: 60000 });
+    await page.goto(`${base}${route}`, { waitUntil: 'domcontentloaded', timeout: 60000 });
     await page.waitForSelector('h1', { timeout: 10000 });
+    await new Promise((resolve) => setTimeout(resolve, 500));
 
     const html = await page.content();
     if (consoleErrors.length || pageErrors.length) {
@@ -49,7 +50,7 @@ try {
     const viewportResults = [];
     for (const width of [320, 768, 1024]) {
       await page.setViewport({ width, height: 900, deviceScaleFactor: 1 });
-      await page.reload({ waitUntil: 'networkidle0', timeout: 60000 });
+      await page.reload({ waitUntil: 'domcontentloaded', timeout: 60000 });
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 1);
       viewportResults.push({ width, overflow });
     }

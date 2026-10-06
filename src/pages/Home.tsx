@@ -1,4 +1,4 @@
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, type ComponentType } from 'react';
 import SEO from '../components/SEO';
 import Layout from './Layout';
 import Hero from '../components/slides/HeroSlide';
@@ -12,16 +12,22 @@ const Pricing = lazy(() => import('../components/slides/PricingSlide'));
 const FAQ = lazy(() => import('../components/slides/FAQSlide'));
 const Contact = lazy(() => import('../components/slides/ContactSlide'));
 
-const sections = [
-  ['services', Services, false],
-  ['work', Portfolio, true],
-  ['why', Why, false],
-  ['outcomes', Outcomes, true],
-  ['process', Process, false],
-  ['pricing', Pricing, true],
-  ['faq', FAQ, false],
-  ['contact', Contact, true],
-] as const;
+type Section = {
+  id: string;
+  component: ComponentType;
+  raised: boolean;
+};
+
+const sections: Section[] = [
+  { id: 'services', component: Services, raised: false },
+  { id: 'work', component: Portfolio, raised: true },
+  { id: 'why', component: Why, raised: false },
+  { id: 'outcomes', component: Outcomes, raised: true },
+  { id: 'process', component: Process, raised: false },
+  { id: 'pricing', component: Pricing, raised: true },
+  { id: 'faq', component: FAQ, raised: false },
+  { id: 'contact', component: Contact, raised: true },
+];
 
 export default function Home() {
   return (
@@ -36,7 +42,7 @@ export default function Home() {
         <div className="relative z-10"><Hero /></div>
       </section>
       <Suspense fallback={<div className="min-h-[40vh] flex items-center justify-center text-ember font-display text-2xl">SmartBiz</div>}>
-        {sections.map(([id, Component, raised]) => (
+        {sections.map(({ id, component: Component, raised }) => (
           <section key={id} id={id} className={`relative w-full py-20 md:py-28 scroll-mt-20 border-t border-white/[0.06] ${raised ? 'bg-surface' : 'bg-ink'}`}>
             <div className="relative z-10"><Component /></div>
           </section>

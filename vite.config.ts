@@ -2,17 +2,21 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import { imagetools } from 'vite-imagetools';
-import vitePrerender from 'vite-plugin-prerender';
+import { vitePrerenderPlugin } from 'vite-prerender-plugin';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const rootDir = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
     imagetools(),
-    vitePrerender({
-      staticDir: path.join(process.cwd(), 'dist'),
-      routes: ['/', '/services', '/work', '/about', '/process', '/pricing', '/faq', '/contact', '/404'],
+    vitePrerenderPlugin({
+      renderTarget: '#root',
+      prerenderScript: path.resolve(rootDir, 'src/prerender.tsx'),
+      additionalPrerenderRoutes: ['/services', '/work', '/about', '/process', '/pricing', '/faq', '/contact', '/404'],
     }),
   ],
   build: {

@@ -25,7 +25,7 @@ const organization = {
 };
 
 export default function SEO({ title, description, path, type = 'website', imageAlt = 'SmartBiz web design and software services in Kenya', breadcrumb }: SEOProps) {
-  const canonical = `${SITE_URL}${path === '/' ? '/' : path.replace(/\\/$/, '')}`;
+  const canonical = `${SITE_URL}${path === '/' ? '/' : path.replace(/\/$/, '')}`;
   const webPage = {
     '@type': type === 'article' ? 'Article' : 'WebPage',
     '@id': `${canonical}#webpage`,

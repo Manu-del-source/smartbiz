@@ -19,10 +19,10 @@ export default defineConfig({
     sourcemap: false,
     rollupOptions: {
       output: {
-        manualChunks: {
-          react: ['react', 'react-dom', 'react-router-dom'],
-          motion: ['framer-motion'],
-          seo: ['react-helmet-async'],
+        manualChunks(id) {
+          if (id.includes('node_modules/react') || id.includes('node_modules/react-dom') || id.includes('node_modules/react-router')) return 'react-vendor';
+          if (id.includes('node_modules/framer-motion')) return 'motion-vendor';
+          if (id.includes('node_modules/react-helmet-async')) return 'seo-vendor';
         },
       },
     },

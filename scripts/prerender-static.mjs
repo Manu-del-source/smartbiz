@@ -74,8 +74,8 @@ const routes = {
 };
 
 const indexHtml = readFileSync('dist/index.html', 'utf8');
-const stylesheet = (indexHtml.match(/<link[^>]+rel="stylesheet"[^>]*>/i) || [''])[0];
-const moduleScript = (indexHtml.match(/<script[^>]+type="module"[^>]*><\/script>/i) || [''])[0];
+const stylesheet = (indexHtml.match(/<link[^>]*rel=["']stylesheet["'][^>]*>/i) || [''])[0];
+const moduleScript = (indexHtml.match(/<script[^>]*type=["']module["'][^>]*src=["'][^"']+["'][^>]*><\/script>/i) || [''])[0];
 const faviconLinks = (indexHtml.match(/<link[^>]+(?:rel="icon"|rel="apple-touch-icon")[^>]*>/gi) || []).join('\n');
 const logo = readdirSync('dist/assets').find((name) => /^smartbiz-logo-.*\.(png|webp|avif)$/i.test(name));
 const logoMarkup = logo ? `<img src="/assets/${logo}" alt="SmartBiz logo" width="483" height="311" loading="eager">` : '';

@@ -77,7 +77,7 @@ const PricingSlide: React.FC = () => (
           <div className="text-xl font-medium text-bone whitespace-nowrap">{p.price}</div>
 
           <Button
-            href="#contact"
+            href="/contact"
             variant={p.recommended ? 'primary' : 'outline-dark'}
             className="w-full lg:w-auto text-sm py-2.5 px-6"
           >
@@ -94,7 +94,7 @@ const PricingSlide: React.FC = () => (
 
     <div className="mt-14 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-white/10 pt-10">
       <p className="text-lg text-bone">Need something custom?</p>
-      <Button href="#contact" variant="outline-dark">Let&rsquo;s discuss your project</Button>
+      <Button href="/contact" variant="outline-dark">Let&rsquo;s discuss your project</Button>
     </div>
   </div>
 );

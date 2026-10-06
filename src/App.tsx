@@ -12,7 +12,7 @@ const FAQ = lazy(() => import('./pages/FAQ'));
 const Contact = lazy(() => import('./pages/Contact'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
-export default function App() {
+export function AppRoutes() {
   return (
     <HelmetProvider>
       <BrowserRouter>

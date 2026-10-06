@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "prebuild": "node scripts/generate-sitemap.mjs",
-    "postbuild": "node scripts/prerender.mjs && node scripts/check-seo.mjs"
+    "postbuild": "node scripts/prerender-static.mjs && node scripts/check-seo.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -41,7 +41,6 @@
     "typescript-eslint": "^8.59.2",
     "vite": "^8.0.12",
     "vite-imagetools": "^12.0.1",
-    "vite-plugin-prerender": "^1.0.8",
-    "puppeteer": "^24.26.0"
+    "vite-plugin-prerender": "^1.0.8"
   }
 }

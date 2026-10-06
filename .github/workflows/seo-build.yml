@@ -1,0 +1,26 @@
+name: SmartBiz SEO Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm install
+      - run: npm run build
+      - name: Verify SEO artifacts
+        run: |
+          test -f public/robots.txt
+          test -f public/llms.txt
+          test -f public/sitemap.xml
+          grep -q 'Sitemap: https://smartbiz365.site/sitemap.xml' public/robots.txt
+          ! grep -R '<meta[^>]*content="noindex"' dist || true

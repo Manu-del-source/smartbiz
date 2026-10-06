@@ -58,10 +58,10 @@ const HeroSlide: React.FC = () => {
             transition={{ duration: 0.7, delay: 0.24 }}
             className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12"
           >
-            <Button href="#contact" className="w-full sm:w-auto">
+            <Button href="/contact" className="w-full sm:w-auto">
               Start a Project →
             </Button>
-            <Button href="#work" variant="outline-dark" className="w-full sm:w-auto">
+            <Button href="/work" variant="outline-dark" className="w-full sm:w-auto">
               View Our Work
             </Button>
           </motion.div>

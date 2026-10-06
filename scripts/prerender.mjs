@@ -27,7 +27,7 @@ const server = spawn('npm', ['exec', '--', 'vite', 'preview', '--host', '127.0.0
 
 try {
   await waitForServer(server);
-  const browser = await puppeteer.launch({ headless: 'new', args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+  const browser = await puppeteer.launch({ headless: 'shell', pipe: true, args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'] });
 
   for (const route of routes) {
     const page = await browser.newPage();

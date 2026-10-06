@@ -344,7 +344,7 @@ const PortfolioSlide: React.FC = () => {
       <Reveal className="pt-16 md:pt-20 pb-4 md:pb-6 border-t border-white/10 text-center">
         <h3 className="font-display font-medium text-2xl md:text-3xl text-bone mb-3 tracking-tight">Have a project in mind?</h3>
         <p className="text-base text-mist mb-8">Let's build something worth showing.</p>
-        <a href="#contact" className="btn-primary">
+        <a href="/contact" className="btn-primary">
           Start a project
           <ArrowUpRight size={18} />
         </a>

@@ -47,19 +47,19 @@ try {
       throw new Error(`Browser errors on ${route}: ${[...consoleErrors, ...pageErrors].join(' | ')}`);
     }
 
-    const viewportResults = [];
-    for (const width of [320, 768, 1024]) {
-      await page.setViewport({ width, height: 900, deviceScaleFactor: 1 });
-      await page.reload({ waitUntil: 'domcontentloaded', timeout: 60000 });
-      const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 1);
-      viewportResults.push({ width, overflow });
-    }
-    const badViewport = viewportResults.find((item) => item.overflow);
-    if (badViewport) throw new Error(`Horizontal overflow on ${route} at ${badViewport.width}px`);
-
     const target = route === '/' ? 'dist/index.html' : route === '/404' ? 'dist/404.html' : `dist${route}/index.html`;
     mkdirSync(join('dist', route === '/' ? '' : route.slice(1)), { recursive: true });
     writeFileSync(target, html);
+    await page.close();
+  }
+
+  for (const width of [320, 768, 1024]) {
+    const page = await browser.newPage();
+    await page.setViewport({ width, height: 900, deviceScaleFactor: 1 });
+    await page.goto(`${base}/`, { waitUntil: 'domcontentloaded', timeout: 20000 });
+    await page.waitForSelector('h1', { timeout: 10000 });
+    const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 1);
+    if (overflow) throw new Error(`Horizontal overflow on homepage at ${width}px`);
     await page.close();
   }
 

@@ -77,7 +77,7 @@ const indexHtml = readFileSync('dist/index.html', 'utf8');
 const stylesheet = (indexHtml.match(/<link[^>]+rel="stylesheet"[^>]*>/i) || [''])[0];
 const moduleScript = (indexHtml.match(/<script[^>]+type="module"[^>]*><\/script>/i) || [''])[0];
 const faviconLinks = (indexHtml.match(/<link[^>]+(?:rel="icon"|rel="apple-touch-icon")[^>]*>/gi) || []).join('\n');
-const logo = readdirSync('dist/assets').find((name) => /\.\.(png|webp|avif)$/i.test(name));
+const logo = readdirSync('dist/assets').find((name) => /^smartbiz-logo-.*\.(png|webp|avif)$/i.test(name));
 const logoMarkup = logo ? `<img src="/assets/${logo}" alt="SmartBiz logo" width="483" height="311" loading="eager">` : '';
 
 function schema(route, page) {
@@ -110,8 +110,7 @@ for (const [route, page] of Object.entries(routes)) {
 ${faviconLinks}${stylesheet}
 ${schema(route,page).map((item) => `<script type="application/ld+json">${JSON.stringify(item)}</script>`).join('')}
 </head>
-<body>
-<header><a href="/" aria-label="SmartBiz homepage">${logoMarkup}</a><nav aria-label="Primary navigation">${nav}</nav></header>
+<body>\n<div id="root">\n<header><a href="/" aria-label="SmartBiz homepage">${logoMarkup}</a><nav aria-label="Primary navigation">${nav}</nav></header>
 <main><p>SmartBiz · Eldoret, Kenya</p><h1>${page.h1}</h1><p>${page.intro}</p>${sections}<p><a href="/contact">Start a Project</a></p></main>
 ${moduleScript}
 </body>

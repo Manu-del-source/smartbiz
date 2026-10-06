@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 import { imagetools } from 'vite-imagetools';
 
 export default defineConfig({
-  plugins: [react(), tailwindcss(), imagetools()],
+  plugins: [react(), tailwindcss(), imagetools({ defaultDirectives: () => new URLSearchParams({ format: 'webp', quality: '82' }) })],
   build: {
     sourcemap: false,
     rollupOptions: {

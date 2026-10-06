@@ -63,9 +63,10 @@ for (const file of htmlFiles) {
   for (const match of html.matchAll(/<(?:a|link)[^>]+href=["']([^"'#?]+)[^"']*["'][^>]*>/gi)) {
     const href = match[1];
     if (href.startsWith('/') && !href.startsWith('//')) {
+      const staticTarget = join('dist', href);
       const target = href === '/' ? 'dist/index.html' : `dist${href}/index.html`;
       const targetFile = existsSync(target) ? target : `dist${href}.html`;
-      if (!existsSync(targetFile) && !['/api/contact'].includes(href)) {
+      if (!existsSync(staticTarget) && !existsSync(targetFile) && !['/api/contact'].includes(href)) {
         throw new Error(`SEO check failed: broken internal link ${href} in ${file}`);
       }
     }

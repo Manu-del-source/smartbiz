@@ -5,7 +5,7 @@ const SITE = 'https://smartbiz365.site';
 const routes = {
   '/': {
     title: 'SmartBiz | Web Design & Business Software in Kenya',
-    description: 'SmartBiz builds fast, mobile-first websites and business software for Kenyan companies. Get a professional web presence designed to attract customers and grow.',
+    description: 'SmartBiz builds fast, mobile-first websites and business software for Kenyan companies. Get a web presence designed to attract customers and grow.',
     h1: 'Websites and business software that help Kenyan businesses grow',
     intro: 'SmartBiz designs and develops fast, mobile-first websites, online stores and custom business systems for companies across Kenya.',
     sections: [

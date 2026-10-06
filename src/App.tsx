@@ -14,21 +14,27 @@ const NotFound = lazy(() => import('./pages/NotFound'));
 
 export function AppRoutes() {
   return (
+    <Suspense fallback={<div className="min-h-screen bg-ink text-bone flex items-center justify-center font-display text-2xl">SmartBiz</div>}>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/work" element={<Work />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/process" element={<Process />} />
+        <Route path="/pricing" element={<Pricing />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Suspense>
+  );
+}
+
+export default function App() {
+  return (
     <HelmetProvider>
       <BrowserRouter>
-        <Suspense fallback={<div className="min-h-screen bg-ink text-bone flex items-center justify-center font-display text-2xl">SmartBiz</div>}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/work" element={<Work />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/process" element={<Process />} />
-            <Route path="/pricing" element={<Pricing />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
+        <AppRoutes />
       </BrowserRouter>
     </HelmetProvider>
   );

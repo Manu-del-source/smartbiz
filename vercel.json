@@ -1,0 +1,16 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ],
+  "rewrites": [
+    { "source": "/((?!api/|assets/|sitemap.xml|robots.txt|llms.txt|favicon.ico|favicon-16x16.png|favicon-32x32.png|apple-touch-icon.png|og-image.png).*)", "destination": "/index.html" }
+  ]
+}

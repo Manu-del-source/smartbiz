@@ -39,7 +39,7 @@ if (!existsSync('public/robots.txt') || !existsSync('public/llms.txt') || !exist
 for (const [route, candidates] of Object.entries(routes)) {
   const file = resolveRouteFile(candidates);
   const html = readFileSync(file, 'utf8');
-  const title = firstMatch(html, /<title>([^<]*)<\\/title>/i, 'title', file);
+  const title = firstMatch(html, /<title>([^<]*)<\/title>/i, 'title', file);
   const description = firstMatch(html, /<meta[^>]+name=["']description["'][^>]+content=["']([^"']+)["'][^>]*>/i, 'meta description', file);
   const canonical = firstMatch(html, /<link[^>]+rel=["']canonical["'][^>]+href=["']([^"']+)["'][^>]*>/i, 'canonical', file);
   if (title.length < 50 || title.length > 60) throw new Error(`SEO check failed: ${file} title is ${title.length} chars (50-60 required)`);
@@ -48,11 +48,11 @@ for (const [route, candidates] of Object.entries(routes)) {
   if (canonical !== expected) throw new Error(`SEO check failed: ${file} canonical is ${canonical}, expected ${expected}`);
   if (/<meta[^>]+name=["']robots["'][^>]+content=["'][^"']*noindex/i.test(html)) throw new Error(`SEO check failed: noindex found in ${file}`);
   if (!/<meta[^>]+property=["']og:image["'][^>]+content=["'][^"']+["']/i.test(html)) throw new Error(`SEO check failed: missing og:image in ${file}`);
-  const h1 = html.match(/<h1\\b[^>]*>/gi) ?? [];
+  const h1 = html.match(/<h1\b[^>]*>/gi) ?? [];
   if (h1.length !== 1) throw new Error(`SEO check failed: ${file} has ${h1.length} H1 elements`);
-  const images = html.match(/<img\\b[^>]*>/gi) ?? [];
+  const images = html.match(/<img\b[^>]*>/gi) ?? [];
   for (const img of images) {
-    const alt = img.match(/\\balt=["']([^"']*)["']/i);
+    const alt = img.match(/\balt=["']([^"']*)["']/i);
     if (!alt || !alt[1].trim()) throw new Error(`SEO check failed: image without descriptive alt in ${file}: ${img.slice(0,120)}`);
   }
 }

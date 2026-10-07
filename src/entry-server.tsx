@@ -1,4 +1,4 @@
-import { renderToString } from 'react-dom/server';
+import { prerender } from 'react-dom/static';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import Home from './pages/Home';
@@ -27,14 +27,16 @@ function ServerRoutes() {
   );
 }
 
-export function render(url: string): { html: string } {
-  return {
-    html: renderToString(
-      <HelmetProvider>
-        <MemoryRouter initialEntries={[url]}>
-          <ServerRoutes />
-        </MemoryRouter>
-      </HelmetProvider>,
-    ),
-  };
+export async function render(url: string): Promise<{ html: string }> {
+  // prerender() waits for lazy()/Suspense content, unlike renderToString().
+  const { prelude } = await prerender(
+    <HelmetProvider>
+      <MemoryRouter initialEntries={[url]}>
+        <ServerRoutes />
+      </MemoryRouter>
+    </HelmetProvider>,
+    // Inline every Suspense boundary as plain HTML (no hidden div + $RC reveal script).
+    { progressiveChunkSize: Number.MAX_SAFE_INTEGER },
+  );
+  return { html: await new Response(prelude).text() };
 }

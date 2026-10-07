@@ -6,7 +6,7 @@ import { imagetools } from 'vite-imagetools';
 export default defineConfig({
   plugins: [react(), tailwindcss(), imagetools({ defaultDirectives: () => new URLSearchParams({ format: 'webp', quality: '82' }) })],
   build: {
-    sourcemap: false,
+    sourcemap: false,\n    cssCodeSplit: false,
     rollupOptions: {
       output: {
         manualChunks(id) {

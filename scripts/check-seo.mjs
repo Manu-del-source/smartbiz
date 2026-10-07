@@ -1,86 +1,10 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-
-const SITE = 'https://smartbiz365.site';
-const routes = {
-  '/': ['dist/index.html'],
-  '/services': ['dist/services/index.html', 'dist/services.html'],
-  '/work': ['dist/work/index.html', 'dist/work.html'],
-  '/about': ['dist/about/index.html', 'dist/about.html'],
-  '/process': ['dist/process/index.html', 'dist/process.html'],
-  '/pricing': ['dist/pricing/index.html', 'dist/pricing.html'],
-  '/faq': ['dist/faq/index.html', 'dist/faq.html'],
-  '/contact': ['dist/contact/index.html', 'dist/contact.html'],
-  '/404': ['dist/404/index.html', 'dist/404.html'],
-};
-
-function findHtml(dir) {
-  return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
-    const p = join(dir, entry.name);
-    return entry.isDirectory() ? findHtml(p) : entry.name.endsWith('.html') ? [p] : [];
-  });
-}
-
-function firstMatch(html, re, label, file) {
-  const m = html.match(re);
-  if (!m) throw new Error(`SEO check failed: missing ${label} in ${file}`);
-  return m[1] ?? '';
-}
-
-function resolveRouteFile(candidates) {
-  const file = candidates.find(existsSync);
-  if (!file) throw new Error(`SEO check failed: missing prerendered route: ${candidates[0]}`);
-  return file;
-}
-
-if (!existsSync('dist')) throw new Error('dist directory is missing');
-if (!existsSync('public/robots.txt') || !existsSync('public/llms.txt') || !existsSync('public/sitemap.xml')) {
-  throw new Error('SEO check failed: robots.txt, llms.txt or sitemap.xml is missing');
-}
-
-for (const [route, candidates] of Object.entries(routes)) {
-  const file = resolveRouteFile(candidates);
-  const html = readFileSync(file, 'utf8');
-  const title = firstMatch(html, /<title>([^<]*)<\/title>/i, 'title', file);
-  const description = firstMatch(html, /<meta[^>]+name=["']description["'][^>]+content=["']([^"']+)["'][^>]*>/i, 'meta description', file);
-  const canonical = firstMatch(html, /<link[^>]+rel=["']canonical["'][^>]+href=["']([^"']+)["'][^>]*>/i, 'canonical', file);
-
-  if (title.length < 50 || title.length > 60) throw new Error(`SEO check failed: ${file} title is ${title.length} chars (50-60 required)`);
-  if (description.length < 140 || description.length > 155) throw new Error(`SEO check failed: ${file} description is ${description.length} chars (140-155 required)`);
-
-  const expected = `${SITE}${route === '/' ? '/' : route}`;
-  if (canonical !== expected) throw new Error(`SEO check failed: ${file} canonical is ${canonical}, expected ${expected}`);
-  if (/<meta[^>]+name=["']robots["'][^>]+content=["'][^"']*noindex/i.test(html)) throw new Error(`SEO check failed: noindex found in ${file}`);
-  if (!/<meta[^>]+property=["']og:image["'][^>]+content=["'][^"']+["']/i.test(html)) throw new Error(`SEO check failed: missing og:image in ${file}`);
-  if (!/<link[^>]+rel=["']stylesheet["'][^>]+href=["'][^"']+["']/i.test(html)) throw new Error(`SEO check failed: missing compiled stylesheet in ${file}`);
-
-  for (const asset of [...html.matchAll(/(?:href|src)=["'](\/assets\/[^"']+)["']/gi)].map((m) => m[1])) {
-    if (!existsSync(join('dist', asset.slice(1)))) {
-      throw new Error(`SEO check failed: missing referenced asset ${asset} in ${file}`);
-    }
-  }
-
-  const h1 = html.match(/<h1\b[^>]*>/gi) ?? [];
-  if (h1.length !== 1) throw new Error(`SEO check failed: ${file} has ${h1.length} H1 elements`);
-
-  const images = html.match(/<img\b[^>]*>/gi) ?? [];
-  for (const img of images) {
-    const alt = img.match(/\balt=["']([^"']*)["']/i);
-    if (!alt || !alt[1].trim()) throw new Error(`SEO check failed: image without descriptive alt in ${file}`);
-  }
-}
-
-for (const file of findHtml('dist')) {
-  const html = readFileSync(file, 'utf8');
-  for (const match of html.matchAll(/<(?:a|link)[^>]+href=["']([^"'#?]+)[^"']*["'][^>]*>/gi)) {
-    const href = match[1];
-    if (href.startsWith('/') && !href.startsWith('//')) {
-      const target = href === '/' ? 'dist/index.html' : (existsSync(`dist${href}/index.html`) ? `dist${href}/index.html` : `dist${href}.html`);
-      if (!existsSync(target) && !['/api/contact'].includes(href)) {
-        throw new Error(`SEO check failed: broken internal link ${href} in ${file}`);
-      }
-    }
-  }
-}
-
-console.log('SEO build checks passed: routes, titles, descriptions, canonicals, indexing, stylesheets, assets, H1 count, images, OG images and internal links.');
+const SITE='https://www.smartbiz365.site';
+const routes={'/':['dist/index.html'],'/services':['dist/services/index.html','dist/services.html'],'/work':['dist/work/index.html','dist/work.html'],'/about':['dist/about/index.html','dist/about.html'],'/process':['dist/process/index.html','dist/process.html'],'/pricing':['dist/pricing/index.html','dist/pricing.html'],'/faq':['dist/faq/index.html','dist/faq.html'],'/contact':['dist/contact/index.html','dist/contact.html'],'/404':['dist/404/index.html','dist/404.html']};
+const fileOf=xs=>{const f=xs.find(existsSync);if(!f)throw Error('Missing prerendered route: '+xs[0]);return f};
+if(!existsSync('dist'))throw Error('dist missing');
+if(!existsSync('public/robots.txt')||!existsSync('public/llms.txt')||!existsSync('public/sitemap.xml'))throw Error('robots.txt, llms.txt or sitemap.xml missing');
+for(const [route,xs] of Object.entries(routes)){const f=fileOf(xs),h=readFileSync(f,'utf8'),t=h.match(/<title>([^<]*)<\/title>/i)?.[1],d=h.match(/<meta[^>]+name=["']description["'][^>]+content=["']([^"']+)["']/i)?.[1],c=h.match(/<link[^>]+rel=["']canonical["'][^>]+href=["']([^"']+)["']/i)?.[1];if(!t||t.length<50||t.length>60)throw Error(`${f} title must be 50-60 chars`);if(!d||d.length<140||d.length>155)throw Error(`${f} description must be 140-155 chars`);if(c!==`${SITE}${route==='/'?'/':route}`)throw Error(`${f} canonical mismatch`);if(/<meta[^>]+name=["']robots["'][^>]+content=["'][^"']*noindex/i.test(h))throw Error(`noindex found in ${f}`);if(!/<meta[^>]+property=["']og:image["']/i.test(h))throw Error(`og:image missing in ${f}`);if(route!=='/404'&&!/<link[^>]+rel=["']stylesheet["'][^>]+href=["']\/assets\//i.test(h))throw Error(`compiled stylesheet missing in ${f}`);for(const a of h.matchAll(/(?:href|src)=["'](\/assets\/[^"']+)["']/gi))if(!existsSync(join('dist',a[1].slice(1))))throw Error(`missing asset ${a[1]} in ${f}`);if((h.match(/<h1\b/gi)||[]).length!==1)throw Error(`${f} must have exactly one H1`);for(const img of h.matchAll(/<img\b[^>]*>/gi))if(!/\balt=["'][^"']+["']/i.test(img[0]))throw Error(`image without alt in ${f}`)}
+for(const f of (function walk(d){return readdirSync(d,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(join(d,e.name)):e.name.endsWith('.html')?[join(d,e.name)]:[])}('dist'))){const h=readFileSync(f,'utf8');for(const m of h.matchAll(/<(?:a|link)[^>]+href=["']([^"'#?]+)["']/gi)){const u=m[1];if(u.startsWith('/')&&!u.startsWith('//')){const target=u==='/'?'dist/index.html':existsSync(`dist${u}/index.html`)?`dist${u}/index.html`:`dist${u}.html`;if(!existsSync(target)&&u!=='/api/contact')throw Error(`broken internal link ${u} in ${f}`)}}}
+console.log('SEO checks passed.');

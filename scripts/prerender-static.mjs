@@ -77,10 +77,10 @@ const indexHtml = readFileSync('dist/index.html', 'utf8');
 
 // Preserve Vite's generated asset tags exactly. Rebuilding these tags with
 // regexes is fragile because Vite/Rolldown may change attribute ordering.
-const originalHead = (indexHtml.match(/<head>[\\s\\S]*?<\\/head>/i) || [''])[0];
-const originalBody = (indexHtml.match(/<body>[\\s\\S]*?<\\/body>/i) || [''])[0];
+const originalHead = (indexHtml.match(/<head>[\s\S]*?<\/head>/i) || [''])[0];
+const originalBody = (indexHtml.match(/<body>[\s\S]*?<\/body>/i) || [''])[0];
 const assetHead = originalHead
-  .replace(/<title>[\\s\\S]*?<\\/title>/i, '')
+  .replace(/<title>[\s\S]*?<\/title>/i, '')
   .replace(/<meta[^>]+name=["']description["'][^>]*>/i, '')
   .replace(/<meta[^>]+name=["']robots["'][^>]*>/i, '')
   .replace(/<link[^>]+rel=["']canonical["'][^>]*>/i, '')
@@ -88,8 +88,8 @@ const assetHead = originalHead
   .replace(/<meta[^>]+name=["']twitter:[^"']+["'][^>]*>/gi, '')
   .replace(/<meta[^>]+name=["']description["'][^>]*>/gi, '')
   .replace(/<link[^>]+(?:rel=["']icon["']|rel=["']apple-touch-icon["'])[^>]*>/gi, '');
-const moduleScript = (originalBody.match(/<script[^>]+type=["']module["'][^>]*><\\/script>/i) || [''])[0];
-const logo = readdirSync('dist/assets').find((name) => /^smartbiz-logo-.*\\.(png|webp|avif)$/i.test(name));
+const moduleScript = (originalBody.match(/<script[^>]+type=["']module["'][^>]*><\/script>/i) || [''])[0];
+const logo = readdirSync('dist/assets').find((name) => /^smartbiz-logo-.*\.(png|webp|avif)$/i.test(name));
 const logoMarkup = logo ? `<img src="/assets/${logo}" alt="SmartBiz logo" width="483" height="311" loading="eager">` : '';
 
 function schema(route, page) {
@@ -105,7 +105,7 @@ for (const [route, page] of Object.entries(routes)) {
   const canonical = `${SITE}${route === '/' ? '/' : route}`;
   const nav = ['/','/services','/work','/about','/process','/pricing','/faq','/contact'].map((href) => `<a href="${href}">${href === '/' ? 'Home' : href.slice(1).replace(/^./, (x) => x.toUpperCase())}</a>`).join(' · ');
   const sections = page.sections.map(([heading, body]) => `<section><h2>${heading}</h2><p>${body}</p></section>`).join('');
-  const html = `<!doctype html>\n<html lang="en">\n<head>\n<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">\n<title>${page.title}</title><meta name="description" content="${page.description}">\n<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">\n<link rel="canonical" href="${canonical}">\n<meta property="og:title" content="${page.title}"><meta property="og:description" content="${page.description}">\n<meta property="og:type" content="website"><meta property="og:url" content="${canonical}">\n<meta property="og:site_name" content="SmartBiz"><meta property="og:image" content="${SITE}/og-image.png">\n<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${page.title}">\n<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${page.title}">\n<meta name="twitter:description" content="${page.description}"><meta name="twitter:image" content="${SITE}/og-image.png">\n${assetHead.replace(/<head>/i, '').replace(/<\\/head>/i, '')}\n${schema(route,page).map((item) => `<script type="application/ld+json">${JSON.stringify(item)}</script>`).join('')}\n</head>\n<body>\n<div id="root">\n<header><a href="/" aria-label="SmartBiz homepage">${logoMarkup}</a><nav aria-label="Primary navigation">${nav}</nav></header>\n<main><p>SmartBiz · Eldoret, Kenya</p><h1>${page.h1}</h1><p>${page.intro}</p>${sections}<p><a href="/contact">Start a Project</a></p></main>\n${moduleScript}\n</div>\n</body>\n</html>`;
+  const html = `<!doctype html>\n<html lang="en">\n<head>\n<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">\n<title>${page.title}</title><meta name="description" content="${page.description}">\n<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">\n<link rel="canonical" href="${canonical}">\n<meta property="og:title" content="${page.title}"><meta property="og:description" content="${page.description}">\n<meta property="og:type" content="website"><meta property="og:url" content="${canonical}">\n<meta property="og:site_name" content="SmartBiz"><meta property="og:image" content="${SITE}/og-image.png">\n<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${page.title}">\n<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${page.title}">\n<meta name="twitter:description" content="${page.description}"><meta name="twitter:image" content="${SITE}/og-image.png">\n${assetHead.replace(/<head>/i, '').replace(/<\/head>/i, '')}\n${schema(route,page).map((item) => `<script type="application/ld+json">${JSON.stringify(item)}</script>`).join('')}\n</head>\n<body>\n<div id="root">\n<header><a href="/" aria-label="SmartBiz homepage">${logoMarkup}</a><nav aria-label="Primary navigation">${nav}</nav></header>\n<main><p>SmartBiz · Eldoret, Kenya</p><h1>${page.h1}</h1><p>${page.intro}</p>${sections}<p><a href="/contact">Start a Project</a></p></main>\n${moduleScript}\n</div>\n</body>\n</html>`;
   const target = route === '/' ? 'dist/index.html' : route === '/404' ? 'dist/404.html' : `dist${route}/index.html`;
   mkdirSync(join('dist', route === '/' || route === '/404' ? '' : route.slice(1)), { recursive: true });
   writeFileSync(target, html);

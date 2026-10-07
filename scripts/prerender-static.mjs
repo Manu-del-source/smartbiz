@@ -36,7 +36,7 @@ for (const route of routes) {
   const rootMarkup = `<div id="root">${body}</div>`;
   const rootPlaceholder = '<div id="root"></div>';
   if (!template.includes(rootPlaceholder)) throw new Error('Prerender failed: Vite root placeholder not found.');
-  const html = template.replace(/<head>[\\s\\S]*?<\\/head>/i, head).replace(rootPlaceholder, rootMarkup);
+  const html = template.replace(/<head>[\s\S]*?<\/head>/i, head).replace(rootPlaceholder, rootMarkup);
   const target = route === '/' ? 'dist/index.html' : route === '/404' ? 'dist/404.html' : `dist${route}/index.html`;
   mkdirSync(target.slice(0, target.lastIndexOf('/')) || 'dist', { recursive: true });
   writeFileSync(target, html);

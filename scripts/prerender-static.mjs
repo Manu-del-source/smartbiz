@@ -18,7 +18,7 @@ const server = await import(new URL('../dist/server/entry-server.js', import.met
 const cssFiles = readdirSync('dist/assets').filter((name) => name.endsWith('.css'));
 if (!cssFiles.length) throw new Error('Prerender failed: Vite produced no CSS asset.');
 const cssLinks = cssFiles.map((name) => `<link rel="stylesheet" crossorigin href="/assets/${name}">`).join('\n');
-const moduleScript = (template.match(/<script[^>]+type=["']module["'][^>]+src=["']\/assets\/[^"']+["'][^>]*><\/script>/i) || [''])[0];
+const moduleScript = (template.match(/<script[^>]*type=["']module["'][^>]*><\/script>/i) || template.match(/<script[^>]*src=["']\/assets\/[^"']+["'][^>]*><\/script>/i) || [''])[0];
 const originalHead = (template.match(/<head>[\s\S]*?<\/head>/i) || [''])[0];
 const safeHeadAssets = originalHead.match(/<link[^>]+(?:rel=["']icon|rel=["']apple-touch-icon|rel=["']preconnect|fonts.googleapis.com|fonts.gstatic.com)[^>]*>/gi) ?? [];
 function schema(route, page) {

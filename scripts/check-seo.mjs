@@ -47,7 +47,7 @@ for (const [route, candidates] of Object.entries(routes)) {
   const expected = `${SITE}${route === '/' ? '/' : route}`;
   if (canonical !== expected) throw new Error(`SEO check failed: ${file} canonical is ${canonical}, expected ${expected}`);
   if (/<meta[^>]+name=["']robots["'][^>]+content=["'][^"']*noindex/i.test(html)) throw new Error(`SEO check failed: noindex found in ${file}`);
-  if (!/<meta[^>]+property=["']og:image["'][^>]+content=["'][^"']+["']/i.test(html)) throw new Error(`SEO check failed: missing og:image in ${file}`);
+  if (!/<meta[^>]+property=["']og:image["'][^>]+content=["'][^"']+["']/i.test(html)) throw new Error(`SEO check failed: missing og:image in ${file}`);\n  if (!/<link[^>]+rel=["']stylesheet["'][^>]+href=["'][^"']+["']/i.test(html)) throw new Error(`SEO check failed: missing compiled stylesheet in ${file}`);\n  for (const asset of [...html.matchAll(/(?:href|src)=["'](\\/assets\\/[^"']+)["']/gi)].map((m) => m[1])) { if (!existsSync(join('dist', asset.slice(1)))) throw new Error(`SEO check failed: missing referenced asset ${asset} in ${file}`); }
   const h1 = html.match(/<h1\b[^>]*>/gi) ?? [];
   if (h1.length !== 1) throw new Error(`SEO check failed: ${file} has ${h1.length} H1 elements`);
   const images = html.match(/<img\b[^>]*>/gi) ?? [];

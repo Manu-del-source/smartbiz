@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <Layout>
       <SEO
-        title="SmartBiz | Web Design & Business Software in Kenya"
+        title="SmartBiz | Web Design & Business Software for Kenya"
         description="SmartBiz builds fast, mobile-first websites and business software for Kenyan companies. Get a professional web presence designed to attract customers and grow."
         path="/"
       />

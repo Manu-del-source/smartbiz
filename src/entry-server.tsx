@@ -1,29 +1,40 @@
-import { PassThrough } from 'node:stream';
-import { renderToPipeableStream } from 'react-dom/server';
-import { StaticRouter } from 'react-router-dom/server';
+import { renderToString } from 'react-dom/server';
+import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
-import { AppRoutes } from './App';
+import Home from './pages/Home';
+import Services from './pages/Services';
+import Work from './pages/Work';
+import About from './pages/About';
+import Process from './pages/Process';
+import Pricing from './pages/Pricing';
+import FAQ from './pages/FAQ';
+import Contact from './pages/Contact';
+import NotFound from './pages/NotFound';
 
-export async function render(url: string): Promise<{ html: string }> {
-  const output = new PassThrough();
-  const chunks: Buffer[] = [];
-  output.on('data', (chunk) => chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk)));
-  const complete = new Promise<string>((resolve, reject) => {
-    output.on('end', () => resolve(Buffer.concat(chunks).toString('utf8')));
-    output.on('error', reject);
-  });
-
-  const { pipe } = renderToPipeableStream(
-    <HelmetProvider>
-      <StaticRouter location={url}>
-        <AppRoutes />
-      </StaticRouter>
-    </HelmetProvider>,
-    {
-      onAllReady: () => pipe(output),
-      onError: (error) => console.error(error),
-    },
+function ServerRoutes() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/services" element={<Services />} />
+      <Route path="/work" element={<Work />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/process" element={<Process />} />
+      <Route path="/pricing" element={<Pricing />} />
+      <Route path="/faq" element={<FAQ />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
+}
 
-  return { html: await complete };
+export function render(url: string): { html: string } {
+  return {
+    html: renderToString(
+      <HelmetProvider>
+        <MemoryRouter initialEntries={[url]}>
+          <ServerRoutes />
+        </MemoryRouter>
+      </HelmetProvider>,
+    ),
+  };
 }

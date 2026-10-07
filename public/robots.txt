@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://smartbiz365.site/sitemap.xml
+Sitemap: https://www.smartbiz365.site/sitemap.xml

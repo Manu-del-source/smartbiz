@@ -4,7 +4,7 @@ const SITE = 'https://smartbiz365.site';
 const routes = ['/', '/services', '/work', '/about', '/process', '/pricing', '/faq', '/contact', '/404'];
 
 const metadata = {
-  '/': { title: 'SmartBiz | Web Design & Business Software for Kenya', description: 'SmartBiz builds fast, mobile-first websites and business software for Kenyan companies. Get a professional web presence designed to attract customers and grow.' },
+  '/': { title: 'SmartBiz | Web Design & Business Software for Kenya', description: 'SmartBiz builds fast, mobile-first websites and business software for Kenyan companies. Get a professional web presence designed to attract customers.' },
   '/services': { title: 'Web Design & Development Services | SmartBiz Kenya', description: 'Explore SmartBiz web design, e-commerce, custom web applications, business systems, redesigns and technical SEO services for Kenyan businesses.' },
   '/work': { title: 'SmartBiz Portfolio | Kenyan Business Websites & Apps', description: 'See selected SmartBiz website projects for restaurants, hotels, retailers and event brands. Explore live work built for real Kenyan businesses.' },
   '/about': { title: 'About SmartBiz | Web Design for Kenyan Business Growth', description: 'Learn how SmartBiz approaches web design and development for Kenyan businesses, with practical strategy, mobile-first design and ongoing support.' },

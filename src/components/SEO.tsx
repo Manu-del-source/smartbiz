@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 
-export const SITE_URL = 'https://smartbiz365.site';
+export const SITE_URL = 'https://www.smartbiz365.site';
 export const OG_IMAGE = `${SITE_URL}/og-image.png`;
 
 export type SEOProps = {

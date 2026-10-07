@@ -33,7 +33,7 @@ export default function Home() {
     <Layout>
       <SEO
         title="SmartBiz | Web Design & Business Software for Kenya"
-        description="SmartBiz builds fast, mobile-first websites and business software for Kenyan companies. Get a professional web presence designed to attract customers and grow."
+        description="SmartBiz builds fast, mobile-first websites and business software for Kenyan companies. Get a professional web presence designed to attract customers."
         path="/"
       />
       <section id="home" className="relative w-full py-20 md:py-28 pt-32 md:pt-40 scroll-mt-20 bg-ink text-bone overflow-hidden">

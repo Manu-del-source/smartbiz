@@ -33,7 +33,10 @@ for (const route of routes) {
   const body = rendered.html.replace(/<title>[\s\S]*?<\/title>/gi, '').replace(/<meta\b[^>]*>/gi, '').replace(/<link\b[^>]*>/gi, '').replace(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>[\s\S]*?<\/script>/gi, '');
   const canonical = `${SITE}${route === '/' ? '/' : route}`;
   const head = `<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>${page.title}</title><meta name="description" content="${page.description}"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"><link rel="canonical" href="${canonical}"><meta property="og:title" content="${page.title}"><meta property="og:description" content="${page.description}"><meta property="og:type" content="website"><meta property="og:url" content="${canonical}"><meta property="og:site_name" content="SmartBiz"><meta property="og:image" content="${SITE}/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${page.title}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${page.title}"><meta name="twitter:description" content="${page.description}"><meta name="twitter:image" content="${SITE}/og-image.png">${safeHeadAssets.join('\n')}${cssLinks}${schema(route,page).map((x) => `<script type="application/ld+json">${JSON.stringify(x)}</script>`).join('')}</head>`;
-  const html = template.replace(/<head>[\s\S]*?<\/head>/i, head).replace(/<div id="root">[\s\S]*?<\/div>/i, `<div id="root">${body}</div>`);
+  const rootMarkup = `<div id="root">${body}</div>`;
+  const rootPlaceholder = '<div id="root"></div>';
+  if (!template.includes(rootPlaceholder)) throw new Error('Prerender failed: Vite root placeholder not found.');
+  const html = template.replace(/<head>[\\s\\S]*?<\\/head>/i, head).replace(rootPlaceholder, rootMarkup);
   const target = route === '/' ? 'dist/index.html' : route === '/404' ? 'dist/404.html' : `dist${route}/index.html`;
   mkdirSync(target.slice(0, target.lastIndexOf('/')) || 'dist', { recursive: true });
   writeFileSync(target, html);

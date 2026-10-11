@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
+import GoogleAnalytics from './components/GoogleAnalytics';
 
 const Home = lazy(() => import('./pages/Home'));
 const Services = lazy(() => import('./pages/Services'));
@@ -34,6 +35,7 @@ export default function App() {
   return (
     <HelmetProvider>
       <BrowserRouter>
+        <GoogleAnalytics />
         <AppRoutes />
       </BrowserRouter>
     </HelmetProvider>

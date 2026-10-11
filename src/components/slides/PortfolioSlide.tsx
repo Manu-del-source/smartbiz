@@ -34,9 +34,9 @@ interface Project {
   images?: ProjectImages;
 }
 
-// Order is deliberate editorial pacing, not just data order: the one project
-// without a real screenshot (Lumina Events) is placed last, so the sequence
-// leads with five real, screenshot-backed case studies.
+// Order is deliberate editorial pacing, not just data order: projects without
+// a captured screenshot use the typographic treatment below, after the
+// screenshot-backed case studies.
 const PROJECTS: Project[] = [
   {
     title: 'Poppies',
@@ -92,6 +92,17 @@ const PROJECTS: Project[] = [
     to: '#6f4e2e',
     layout: 'offset',
     images: { mobile: { src: '/portfolio/kahawa-house/mobile.jpg', width: 720, height: 1419 } },
+  },
+  {
+    title: 'MaliHub Kenya',
+    category: 'Marketplace & E-commerce',
+    desc: 'Kenya-focused online marketplace connecting buyers and sellers, with product discovery, seller onboarding and dedicated buyer and seller dashboards.',
+    role: 'Product Design · Full-stack Development',
+    link: 'https://malihub.smartbiz365.site/',
+    from: '#123b35',
+    to: '#b98243',
+    layout: 'minimal',
+    // Marketplace is live; a portfolio screenshot can be added when captured.
   },
   {
     title: 'Lumina Events',

@@ -10,7 +10,7 @@ const FOOTER_NAV = [
 ];
 
 const Footer: React.FC = () => (
-  <footer className="border-t border-slate-200 bg-[#f6f7f4] text-slate-900">
+  <footer className="border-t border-slate-200 bg-[#f7f5ef] text-slate-900">
     <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-5 py-14 sm:grid-cols-2 md:grid-cols-4 md:gap-12 md:px-10 md:py-16">
       <div className="space-y-4 sm:col-span-2 md:col-span-1">
         <Link to="/" aria-label="SmartBiz365 homepage"><img src={logo} alt="SmartBiz365 logo" width={483} height={311} loading="lazy" className="h-8 w-auto" /></Link>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Github } from 'lucide-react';
 import logo from '../assets/smartbiz-logo.png';
 import { CONTACT } from '../lib/contact';
 
@@ -36,6 +37,7 @@ const Footer: React.FC = () => (
           <li><a href={`mailto:${CONTACT.email}`} className="hover:text-bone">{CONTACT.email}</a></li>
           <li><a href={CONTACT.whatsappUrl} target="_blank" rel="noreferrer" className="hover:text-bone">{CONTACT.phoneDisplay}</a></li>
           <li>{CONTACT.location}</li>
+          <li><a href="https://github.com/Manu-del-source/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 hover:text-bone transition-colors" aria-label="Visit SmartBiz founder GitHub profile"><Github size={16} /> GitHub profile</a></li>
         </ul>
       </div>
     </div>

@@ -5,7 +5,7 @@ import { CONTACT } from '../lib/contact';
 
 const FOOTER_NAV = [
   ['/services', 'Services'], ['/work', 'Work'], ['/about', 'About'],
-  ['/process', 'Process'], ['/pricing', 'Pricing'], ['/faq', 'FAQ'], ['/contact', 'Contact'],
+  ['/process', 'Process'], ['/pricing', 'Project Planning'], ['/faq', 'FAQ'], ['/contact', 'Contact'],
 ];
 
 const Footer: React.FC = () => (
@@ -36,6 +36,7 @@ const Footer: React.FC = () => (
           <li><a href={`mailto:${CONTACT.email}`} className="hover:text-bone">{CONTACT.email}</a></li>
           <li><a href={CONTACT.whatsappUrl} target="_blank" rel="noreferrer" className="hover:text-bone">{CONTACT.phoneDisplay}</a></li>
           <li>{CONTACT.location}</li>
+          <li><a href="https://github.com/Manu-del-source/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 hover:text-bone transition-colors" aria-label="Visit SmartBiz founder GitHub profile">GitHub profile</a></li>
         </ul>
       </div>
     </div>

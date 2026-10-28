@@ -1,100 +1,80 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Check } from 'lucide-react';
+import { ArrowUpRight, Check } from 'lucide-react';
 import SectionHeading from '../ui/SectionHeading';
 import Button from '../ui/Button';
 
-const PLANS = [
+const PROJECT_TYPES = [
   {
-    name: 'Landing Page',
-    price: 'KES 15,000',
-    desc: 'A single, focused page to introduce your business and drive one clear action.',
-    features: ['Single page design', 'Mobile-first layout', 'WhatsApp contact'],
-  },
-  {
-    name: 'Business Website',
-    price: 'KES 30,000',
-    desc: 'A multi-page website that presents your services and builds credibility.',
-    features: ['Multiple pages', 'Mobile-first layout', 'Contact form', 'Basic SEO setup'],
-    recommended: true,
-  },
-  {
-    name: 'Advanced Website',
-    price: 'KES 50,000',
-    desc: 'A larger site with custom features built around how your business works.',
-    features: ['Custom page templates', 'Advanced interactions', 'Content structured for growth'],
+    name: 'Business websites',
+    desc: 'A professional, mobile-first website that explains your services and turns visitors into enquiries.',
+    features: ['Brand-led design', 'Mobile responsive', 'Contact and enquiry flow'],
   },
   {
     name: 'E-commerce',
-    price: 'KES 60,000',
-    desc: 'An online store built for product discovery, checkout and growth.',
-    features: ['Product catalog & cart', 'M-Pesa checkout', 'Order management'],
+    desc: 'A product-led online store built to help customers browse, order and pay with confidence.',
+    features: ['Product catalogue', 'Checkout planning', 'Payment integration options'],
+    recommended: true,
   },
   {
-    name: 'SaaS / Custom System',
-    price: 'From KES 100,000',
-    desc: 'A bespoke software product or business system, scoped to your requirements.',
-    features: ['Scoped to your requirements', 'Custom workflows', 'Ongoing collaboration'],
+    name: 'Custom platforms',
+    desc: 'A web application, marketplace or business system shaped around your workflows and growth plans.',
+    features: ['Requirements discovery', 'Custom workflows', 'Scalable architecture'],
+  },
+  {
+    name: 'Redesign & ongoing support',
+    desc: 'Improve an existing website, strengthen its foundations or get help maintaining it after launch.',
+    features: ['UX and performance review', 'Technical improvements', 'Support options'],
   },
 ];
 
 const PricingSlide: React.FC = () => (
   <div className="container mx-auto px-5 md:px-10 py-6 md:py-10">
     <SectionHeading
-      title="Website & software development packages"
-      subtitle="Clear starting prices for websites, e-commerce stores and custom digital systems. Final pricing depends on the project's scope and requirements."
+      title="A clear plan, built around your project"
+      subtitle="We don’t publish one-size-fits-all prices. Every proposal is based on your goals, features, timeline and support needs—so you know what is included before work begins."
     />
 
-    <div className="divide-y divide-white/10 border-y border-white/10">
-      {PLANS.map((p, i) => (
-        <motion.div
-          key={p.name}
+    <div className="grid grid-cols-1 md:grid-cols-2 border-t border-l border-white/10">
+      {PROJECT_TYPES.map((project, i) => (
+        <motion.article
+          key={project.name}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: i * 0.06 }}
-          className={`grid grid-cols-1 lg:grid-cols-[1.3fr_1.6fr_auto_auto] gap-4 lg:gap-8 items-center py-8 ${
-            p.recommended ? 'lg:-mx-6 lg:px-6 bg-ember/[0.06]' : ''
-          }`}
+          className={`flex h-full flex-col border-r border-b border-white/10 p-6 sm:p-8 md:p-9 transition-colors hover:bg-white/[0.025] ${project.recommended ? 'bg-ember/[0.045]' : ''}`}
         >
-          <div>
-            {p.recommended && (
-              <span className="inline-block text-xs font-medium text-ember mb-1.5">Most popular</span>
-            )}
-            <h3 className="text-lg font-medium text-bone">{p.name}</h3>
-            <p className="text-sm text-mist mt-1 max-w-sm">{p.desc}</p>
+          <div className="mb-6 flex items-start justify-between gap-4">
+            <span className="text-xs uppercase tracking-[0.14em] text-mist/60">{String(i + 1).padStart(2, '0')}</span>
+            {project.recommended && <span className="text-xs text-ember">Popular project type</span>}
           </div>
-
-          <ul className="flex flex-wrap gap-x-5 gap-y-2">
-            {p.features.map((f) => (
-              <li key={f} className="flex items-center gap-1.5 text-sm text-mist">
-                <Check size={14} className="text-mist/70 flex-shrink-0" />
-                {f}
+          <h3 className="font-display text-2xl sm:text-3xl tracking-tight text-bone">{project.name}</h3>
+          <p className="mt-3 mb-6 text-sm leading-relaxed text-mist">{project.desc}</p>
+          <ul className="mb-8 space-y-3">
+            {project.features.map((feature) => (
+              <li key={feature} className="flex items-start gap-2.5 text-sm text-mist">
+                <Check size={15} className="mt-0.5 shrink-0 text-ember" />
+                <span>{feature}</span>
               </li>
             ))}
           </ul>
-
-          <div className="text-xl font-medium text-bone whitespace-nowrap">{p.price}</div>
-
-          <Button
-            href="/contact"
-            variant={p.recommended ? 'primary' : 'outline-dark'}
-            className="w-full lg:w-auto text-sm py-2.5 px-6"
-          >
-            Get Started
-          </Button>
-        </motion.div>
+          <div className="mt-auto flex items-center justify-between gap-4 border-t border-white/10 pt-5">
+            <span className="text-sm font-medium text-bone">Tailored proposal</span>
+            <a href="/contact" className="inline-flex items-center gap-1.5 text-sm text-bone transition-colors hover:text-ember">
+              Discuss this <ArrowUpRight size={15} />
+            </a>
+          </div>
+        </motion.article>
       ))}
     </div>
 
-    <div className="flex flex-col sm:flex-row gap-6 sm:gap-10 mt-8 text-sm text-mist">
-      <span><span className="text-bone font-medium">Maintenance:</span> KES 5,000/month</span>
-      <span><span className="text-bone font-medium">Hourly rate:</span> KES 2,000/hour</span>
-    </div>
-
-    <div className="mt-14 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-white/10 pt-10">
-      <p className="text-lg text-bone">Need something custom?</p>
-      <Button href="/contact" variant="outline-dark">Let&rsquo;s discuss your project</Button>
+    <div className="mt-10 flex flex-col items-start justify-between gap-5 border-t border-white/10 pt-8 sm:flex-row sm:items-center">
+      <div>
+        <h3 className="font-display text-2xl text-bone">Have a specific idea?</h3>
+        <p className="mt-2 text-sm text-mist">Tell us what you need and we’ll outline the right next steps.</p>
+      </div>
+      <Button href="/contact" variant="primary">Request a proposal <ArrowUpRight size={16} /></Button>
     </div>
   </div>
 );

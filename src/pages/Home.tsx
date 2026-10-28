@@ -46,7 +46,7 @@ export default function Home() {
   return (
     <Layout>
       <SEO title="SmartBiz365 | Websites, Business Systems & Automation in Kenya" description="SmartBiz365 builds thoughtful websites, business systems and practical automation to help Kenyan businesses work better and grow with confidence." path="/" />
-      <main className="bg-[#f7f5ef] text-slate-900">
+      <main className="bg-[#f6f7f4] text-slate-900">
         <section id="home" className="relative overflow-hidden px-5 pb-16 pt-32 sm:px-8 md:pb-20 md:pt-36 lg:px-10">
           <div aria-hidden="true" className="pointer-events-none absolute -right-28 -top-32 h-[430px] w-[430px] rounded-full bg-amber-200/35 blur-3xl" />
           <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14">
@@ -61,7 +61,7 @@ export default function Home() {
               <div className="mt-7 flex items-center gap-3 text-xs font-medium text-slate-500"><span className="flex -space-x-1.5"><span className="h-6 w-6 rounded-full border-2 border-[#f7f5ef] bg-amber-300" /><span className="h-6 w-6 rounded-full border-2 border-[#f7f5ef] bg-blue-400" /><span className="h-6 w-6 rounded-full border-2 border-[#f7f5ef] bg-violet-400" /></span>Built with purpose. Designed for growth.</div>
             </Reveal>
             <Reveal delay={0.12} className="relative mx-auto w-full max-w-[590px]">
-              <div className="rounded-[26px] bg-[#123c3a] p-4 shadow-2xl shadow-slate-900/10 sm:p-5">
+              <div className="rounded-[26px] bg-[#142035] p-4 shadow-2xl shadow-slate-900/10 sm:p-5">
                 <div className="mb-4 flex items-center justify-between px-1 text-[10px] font-bold tracking-[0.12em] text-slate-300"><span>SMARTBIZ / OVERVIEW</span><span className="rounded-full bg-amber-300 px-3 py-1 text-[9px] tracking-normal text-slate-900">LIVE</span></div>
                 <div className="rounded-2xl bg-white p-4 sm:p-5">
                   <div className="mb-4 flex items-center justify-between gap-2"><h2 className="text-sm font-bold text-slate-900">Business snapshot</h2><span className="rounded-full bg-amber-100 px-3 py-1 text-[10px] font-bold text-amber-900">↗ +28.4%</span></div>
@@ -69,7 +69,7 @@ export default function Home() {
                     {[['Revenue', 'KES 248k', 'bg-amber-100'], ['Orders', '1,284', 'bg-blue-100'], ['Efficiency', '92%', 'bg-violet-100']].map(([label, value, tone]) => <div key={label} className={`rounded-xl p-3 ${tone}`}><p className="text-[10px] text-slate-500">{label}</p><p className="mt-1 text-base font-bold text-slate-900 sm:text-lg">{value}</p></div>)}
                   </div>
                 </div>
-                <div className="mt-3 rounded-2xl bg-[#1b4b47] p-4">
+                <div className="mt-3 rounded-2xl bg-[#202d43] p-4">
                   <div className="mb-4 flex items-center justify-between text-[10px]"><span className="text-slate-300">Performance over time</span><span className="font-bold text-amber-300">+18.6% this month</span></div>
                   <div className="flex h-20 items-end gap-2" aria-label="Illustrative business performance chart">{[24, 35, 28, 45, 38, 58, 52, 68, 56, 70, 66, 80].map((height, i) => <motion.div key={i} initial={{ height: 0 }} whileInView={{ height: `${height}%` }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.035 }} className={`min-w-0 flex-1 rounded-t-md ${i > 8 ? 'bg-amber-300' : 'bg-slate-500'}`} />)}</div>
                 </div>
@@ -81,7 +81,7 @@ export default function Home() {
 
         <section className="border-y border-slate-200 bg-white px-5 py-6 sm:px-8 lg:px-10">
           <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-8 gap-y-4 text-xs font-semibold text-slate-600">
-            <span className="text-[10px] font-bold tracking-[0.12em] text-slate-400">A PARTNER FOR THE WHOLE JOURNEY</span><span className="hidden h-px w-8 bg-slate-200 lg:block" /><span className="flex items-center gap-2"><CheckCircle2 size={15} className="text-teal-700" /> Strategy that makes sense</span><span className="flex items-center gap-2"><CheckCircle2 size={15} className="text-teal-700" /> Technology that works</span><span className="flex items-center gap-2"><CheckCircle2 size={15} className="text-teal-700" /> Support beyond launch</span>
+            <span className="text-[10px] font-bold tracking-[0.12em] text-slate-400">A PARTNER FOR THE WHOLE JOURNEY</span><span className="hidden h-px w-8 bg-slate-200 lg:block" /><span className="flex items-center gap-2"><CheckCircle2 size={15} className="text-amber-900" /> Strategy that makes sense</span><span className="flex items-center gap-2"><CheckCircle2 size={15} className="text-amber-900" /> Technology that works</span><span className="flex items-center gap-2"><CheckCircle2 size={15} className="text-amber-900" /> Support beyond launch</span>
           </div>
         </section>
 
@@ -91,7 +91,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="work" className="scroll-mt-24 bg-[#123c3a] px-5 py-20 text-white sm:px-8 md:py-24 lg:px-10">
+        <section id="work" className="scroll-mt-24 bg-[#142035] px-5 py-20 text-white sm:px-8 md:py-24 lg:px-10">
           <div className="mx-auto max-w-7xl"><SectionHeading eyebrow="SELECTED WORK" title="Made for the real world." description="Thoughtful digital products that help real businesses move forward." dark />
             <div className="grid gap-4 lg:grid-cols-3">{projects.map((project, i) => <Reveal key={project.name} delay={i * 0.07}><article className="group h-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.09]"><div className={`flex min-h-40 items-center justify-between p-6 ${project.tone}`}><span className="rounded-full bg-white px-3 py-1.5 text-[10px] font-bold tracking-wider text-slate-900">{project.tag}</span><div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/70 text-4xl font-black text-slate-800 shadow-sm">{project.symbol}</div><ArrowUpRight className="text-slate-900 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" /></div><div className="p-6"><p className="text-[10px] font-bold tracking-[0.12em] text-amber-300">{project.category.toUpperCase()}</p><h3 className="mt-2 text-2xl font-bold">{project.name}</h3><p className="mt-3 min-h-12 text-sm leading-relaxed text-slate-300">{project.description}</p><a href={project.href} target="_blank" rel="noreferrer" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-white transition-colors hover:text-amber-300">Explore project <ArrowUpRight size={16} /></a></div></article></Reveal>)}</div>
           </div>
@@ -99,12 +99,12 @@ export default function Home() {
 
         <section id="process" className="scroll-mt-24 px-5 py-20 sm:px-8 md:py-24 lg:px-10">
           <div className="mx-auto max-w-7xl"><SectionHeading eyebrow="HOW WE WORK" title="Clear steps. No mystery." description="Good work comes from shared understanding, honest communication and steady progress." />
-            <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">{steps.map(([number, title, description], i) => <Reveal key={number} delay={i * 0.05}><article className="h-full rounded-2xl bg-white p-6 ring-1 ring-slate-200"><span className="text-xs font-black tracking-wider text-teal-800">{number}</span><h3 className="mt-4 text-lg font-bold">{title}</h3><p className="mt-2 text-sm leading-relaxed text-slate-600">{description}</p></article></Reveal>)}</div>
+            <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">{steps.map(([number, title, description], i) => <Reveal key={number} delay={i * 0.05}><article className="h-full rounded-2xl bg-white p-6 ring-1 ring-slate-200"><span className="text-xs font-black tracking-wider text-amber-900">{number}</span><h3 className="mt-4 text-lg font-bold">{title}</h3><p className="mt-2 text-sm leading-relaxed text-slate-600">{description}</p></article></Reveal>)}</div>
           </div>
         </section>
 
         <section id="contact" className="bg-amber-300 px-5 py-12 sm:px-8 md:py-16 lg:px-10">
-          <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-7 rounded-3xl bg-[#102a2a] p-7 text-white sm:p-10 md:flex-row md:items-center"><div className="max-w-2xl"><p className="text-[10px] font-bold tracking-[0.14em] text-amber-300">HAVE A GOOD IDEA? LET’S MAKE IT REAL.</p><h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">Your next chapter starts here.</h2><p className="mt-3 text-sm leading-relaxed text-slate-300">Tell us what you’re trying to improve. We’ll help you find the right next step.</p></div><Link to="/contact" className="inline-flex shrink-0 items-center gap-3 rounded-xl bg-amber-300 px-5 py-3.5 text-sm font-bold text-slate-900 transition hover:-translate-y-0.5 hover:bg-amber-200">Start a conversation <ArrowUpRight size={17} /></Link></div>
+          <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-7 rounded-3xl bg-[#101a2b] p-7 text-white sm:p-10 md:flex-row md:items-center"><div className="max-w-2xl"><p className="text-[10px] font-bold tracking-[0.14em] text-amber-300">HAVE A GOOD IDEA? LET’S MAKE IT REAL.</p><h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">Your next chapter starts here.</h2><p className="mt-3 text-sm leading-relaxed text-slate-300">Tell us what you’re trying to improve. We’ll help you find the right next step.</p></div><Link to="/contact" className="inline-flex shrink-0 items-center gap-3 rounded-xl bg-amber-300 px-5 py-3.5 text-sm font-bold text-slate-900 transition hover:-translate-y-0.5 hover:bg-amber-200">Start a conversation <ArrowUpRight size={17} /></Link></div>
         </section>
       </main>
     </Layout>

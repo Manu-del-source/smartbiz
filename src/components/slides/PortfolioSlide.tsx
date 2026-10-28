@@ -45,7 +45,7 @@ const PortfolioSlide: React.FC = () => (
         const featured = index === 0;
         return (
           <Reveal key={project.title} delay={featured ? 0 : (index % 3) * 0.06} className={`h-full ${featured ? 'sm:col-span-2' : ''}`}>
-            <article className={`group flex h-full flex-col border-b border-r border-white/10 p-6 transition-colors hover:bg-white/[0.025] sm:p-7 md:p-8 ${featured ? 'relative overflow-hidden bg-surface-2/30 md:p-10' : ''}`}>
+            <article className={`group flex h-full flex-col border-b border-r border-white/10 p-6 transition-[background-color,transform,border-color] duration-300 ease-out hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.035] motion-reduce:transform-none sm:p-7 md:p-8 ${featured ? 'relative overflow-hidden bg-surface-2/30 md:p-10' : ''}`}>
               <div className="mb-8 flex items-start justify-between gap-4">
                 <span className="text-xs uppercase tracking-[0.14em] text-mist/60">{featured ? 'Featured digital product' : `Project ${String(index).padStart(2, '0')}`}</span>
                 <span className="rounded border border-white/10 px-2.5 py-1 text-xs text-mist">{project.status}</span>
@@ -54,7 +54,7 @@ const PortfolioSlide: React.FC = () => (
               <div className={`mb-7 flex min-h-28 items-end ${featured ? 'md:min-h-40' : ''}`}>
                 <div className="w-full border-l-2 py-2 pl-5" style={{ borderColor: project.accent }}>
                   <p className="mb-3 text-xs uppercase tracking-[0.15em] text-mist">{project.category}</p>
-                  <h3 className={`font-display leading-tight tracking-tight text-bone ${featured ? 'text-4xl sm:text-5xl md:text-6xl' : 'text-3xl sm:text-4xl'}`}>{project.title}</h3>
+                  <h3 className={`font-display leading-tight tracking-tight text-bone transition-transform duration-300 ease-out group-hover:translate-x-1 motion-reduce:transform-none ${featured ? 'text-4xl sm:text-5xl md:text-6xl' : 'text-3xl sm:text-4xl'}`}>{project.title}</h3>
                 </div>
               </div>
 
@@ -62,7 +62,7 @@ const PortfolioSlide: React.FC = () => (
               <p className="mb-7 text-xs uppercase tracking-[0.1em] text-mist/70">{project.role}</p>
 
               <a href={project.link} target="_blank" rel="noreferrer" className="mt-auto inline-flex items-center gap-2 text-sm font-medium text-bone transition-colors hover:text-ember" aria-label={`Explore the live ${project.title} project in a new tab`}>
-                Explore project <ArrowUpRight size={16} />
+                Explore project <ArrowUpRight size={16} className="transition-transform duration-300 ease-out group-hover:translate-x-1 group-hover:-translate-y-0.5 motion-reduce:transform-none" />
               </a>
             </article>
           </Reveal>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '../assets/smartbiz-logo.png';
@@ -17,6 +18,7 @@ export default function Nav() {
   const location = useLocation();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const reduceMotion = useReducedMotion();
 
   React.useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -40,19 +42,39 @@ export default function Nav() {
         </nav>
         <div className="flex items-center gap-4">
           <Link to="/contact" className="btn-primary py-2.5 px-6 text-sm hidden sm:inline-flex">Start a Project</Link>
-          <button className="lg:hidden text-bone p-1" onClick={() => setOpen(v => !v)} aria-label={open ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={open}>
+          <button className="lg:hidden text-bone p-1 transition-transform duration-200 active:scale-95 motion-reduce:transform-none" onClick={() => setOpen(v => !v)} aria-label={open ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={open}>
             {open ? <X size={26} /> : <Menu size={26} />}
           </button>
         </div>
       </div>
-      {open && (
-        <div className="fixed inset-0 z-[-1] bg-ink lg:hidden pt-28">
-          <nav className="flex flex-col items-center gap-7" aria-label="Mobile navigation">
-            {LINKS.map((link) => <Link key={link.to} to={link.to} onClick={() => setOpen(false)} className={`font-display font-medium text-2xl ${active(link.to) ? 'text-ember' : 'text-bone'}`}>{link.label}</Link>)}
-            <Link to="/contact" onClick={() => setOpen(false)} className="btn-primary px-10 py-4 text-base mt-2">Start a Project</Link>
-          </nav>
-        </div>
-      )}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            key="mobile-navigation"
+            initial={reduceMotion ? false : { opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -8 }}
+            transition={{ duration: reduceMotion ? 0 : 0.22, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed inset-0 z-[-1] bg-ink pt-28 lg:hidden"
+          >
+            <nav className="flex flex-col items-center gap-7" aria-label="Mobile navigation">
+              {LINKS.map((link, index) => (
+                <motion.div
+                  key={link.to}
+                  initial={reduceMotion ? false : { opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: reduceMotion ? 0 : 0.2, delay: reduceMotion ? 0 : 0.025 * index }}
+                >
+                  <Link to={link.to} onClick={() => setOpen(false)} className={`font-display font-medium text-2xl transition-colors duration-200 ${active(link.to) ? 'text-ember' : 'text-bone hover:text-ember'}`}>{link.label}</Link>
+                </motion.div>
+              ))}
+              <motion.div initial={reduceMotion ? false : { opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: reduceMotion ? 0 : 0.2, delay: reduceMotion ? 0 : 0.18 }}>
+                <Link to="/contact" onClick={() => setOpen(false)} className="btn-primary mt-2 px-10 py-4 text-base">Start a Project</Link>
+              </motion.div>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

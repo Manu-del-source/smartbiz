@@ -5,7 +5,7 @@ import { CONTACT } from '../lib/contact';
 
 const FOOTER_NAV = [
   ['/services', 'Services'], ['/work', 'Work'], ['/about', 'About'],
-  ['/process', 'Process'], ['/pricing', 'Pricing'], ['/faq', 'FAQ'], ['/contact', 'Contact'],
+  ['/process', 'Process'], ['/pricing', 'Project Planning'], ['/faq', 'FAQ'], ['/contact', 'Contact'],
 ];
 
 const Footer: React.FC = () => (
